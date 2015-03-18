@@ -2,6 +2,8 @@
 
 SvgSnappyRectangleComponent = Ember.Component.extend(
 
+  classNames: ['svgjs-rectangle-style']
+
   color: undefined
 
   rect: undefined

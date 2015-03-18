@@ -2,6 +2,8 @@
 
 SvgClockSwissrailwayComponent = Ember.Component.extend(
 
+  classNames: ['svgjs-clock-style']
+
   svgInit: ->
     # Create svg.js context for later manipulations
     draw = SVG('svg-wrapper')

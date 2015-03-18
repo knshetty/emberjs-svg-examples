@@ -3,13 +3,23 @@ html, body {
 }
 
 #svg-wrapper {
-  background: #2A2F33;
   width: 600px;
   height: 600px;
 }
 
 #snapsvg-wrapper {
-  background: #3498db;
   width: 600px;
   height: 600px;
+}
+
+.svgjs-rectangle-style {
+  background: #DBD7CD;
+}
+
+.svgjs-clock-style {
+  background: #2A2F33;
+}
+
+.snapsvg-clock-style {
+  background: #70607A;
 }

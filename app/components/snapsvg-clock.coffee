@@ -2,6 +2,8 @@
 
 SnapsvgClockComponent = Ember.Component.extend(
 
+  classNames: ['snapsvg-clock-style']
+
   snapsvgInit: ->
     # Create snap.svg context for later manipulations
     draw = Snap('#snapsvg-wrapper')
