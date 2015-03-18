@@ -1,3 +1,69 @@
-<h2 id='title'>Welcome to Ember.js</h2>
+Current route path: "{{currentPath}}"
 
-{{outlet}}
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-12 column">
+      <nav class="navbar navbar-inverse" role="navigation">
+
+        <div class="navbar-header">
+           <button type="button"
+                   class="navbar-toggle"
+                   data-toggle="collapse"
+                   data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+           </button>
+
+           {{#link-to "sandbox"}}
+              <a class="navbar-brand">
+                <span class="glyphicon glyphicon-tower"></span>
+                Ember + SVG
+              </a>
+          {{/link-to}}
+        </div>
+
+        <div class="collapse navbar-collapse"
+             id="bs-example-navbar-collapse-1"
+             navbar-selection-main ng-cloak>
+          <ul class="nav navbar-nav">
+
+            {{#link-to "sandbox"
+              tagName =   "li"
+              href    =   false}}
+              <a {{bind-attr href="#sandbox"}}>
+                <span class="glyphicon glyphicon-inbox"></span>
+                Sandbox
+              </a>
+            {{/link-to}}
+
+            {{#link-to "svgjs"
+              tagName =   "li"
+              href    =   false}}
+              <a {{bind-attr href="#svgjs"}}>
+                <span class="glyphicon glyphicon-eye-open"></span>
+                Svg.js
+              </a>
+            {{/link-to}}
+
+            {{#link-to "snapsvg"
+              tagName =   "li"
+              href    =   false}}
+              <a {{bind-attr href="#snapsvg"}}>
+                <span class="glyphicon glyphicon-stats"></span>
+                Snap.svg
+              </a>
+            {{/link-to}}
+
+          </ul>
+
+        </div>
+
+      </nav>
+    </div>
+  </div>
+
+  {{outlet}}
+
+</div>
