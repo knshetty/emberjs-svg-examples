@@ -2,7 +2,7 @@
 
 IndexRoute = Ember.Route.extend(
   redirect: ->
-    @transitionTo('svgjs')
+    @transitionTo('sandbox')
 )
 
 `export default IndexRoute`

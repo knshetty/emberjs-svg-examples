@@ -2,7 +2,7 @@
 
 SnapsvgRoute = Ember.Route.extend(
   afterModel: ->
-    @.transitionTo('snapsvg.menu')
+    @.transitionTo('snapsvg.clock')
 )
 
 `export default SnapsvgRoute`

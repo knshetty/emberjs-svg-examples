@@ -2,7 +2,7 @@
 
 SnapsvgClockComponent = Ember.Component.extend(
 
-  classNames: ['snapsvg-clock-style']
+  #classNames: ['snapsvg-clock-style']
 
   snapsvgInit: ->
     # Create snap.svg context for later manipulations
@@ -16,20 +16,13 @@ SnapsvgClockComponent = Ember.Component.extend(
     @snapsvgInit()
 
     # --- Clock ---
-    ###circle = @get('draw').circle(100, 50, 10)
-
-    circle.attr({
-      fill: '#bada55',
-      stroke: '#000',
-      strokeWidth: 5
-    })###
-
     s = @get('draw')
-    path = ""
+    path = ''
     nums = s.text(300, 300, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]).attr({
-                font: "300 40px Helvetica Neue",
-                textAnchor: "middle"
-              })
+              font: "300 40px Helvetica Neue",
+              textAnchor: "middle"
+            })
+
     for i in [0..71]
       r = i % 6 ? i % 3 ? 247 : 240 : 230
       sin = Math.sin(Snap.rad(5 * i))
@@ -45,9 +38,10 @@ SnapsvgClockComponent = Ember.Component.extend(
                 fill: "none",
                 stroke: "#000",
                 strokeWidth: 2
-              })).attr({transform: "t0,210"})
+              })).attr({transform: "t0, 210"})
 
     s.g(table).attr({clip: s.circle(300, 300, 100)})
+    #console.log s.g(table)
 
     hand = s.line(300, 200, 300, 400).attr({
               fill: "none",
