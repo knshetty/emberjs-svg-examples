@@ -38,7 +38,6 @@ var bootstrapFonts = pickFiles('bower_components/bootstrap/dist/fonts', {
 });
 
 
-
 // --- SVG libraries as dependencies ---
 // -- svg.js: A lightweight library for manipulating and animating SVG => http://svgjs.com/--
 app.import('bower_components/svg.js/dist/svg.js');
@@ -71,6 +70,17 @@ app.import('bower_components/ember-addons.bs_for_ember/dist/js/bs-progressbar.mi
 app.import('bower_components/ember-addons.bs_for_ember/dist/js/bs-wizard.min.js');
 
 
+// --- SVG assests ---
+app.import('app/styles/intraday-designer-infographic-svg.css');
+app.import('app/styles/world-population-infographic-svg.css');
+var svgAssests = pickFiles('app/svgs', {
+  srcDir: '/',
+  files: ['intraday-designer-infographic.svg'],
+  destDir: '/assets'
+});
+
+
 module.exports = mergeTrees([app.toTree(),
                              bootstrapMap,
-                             bootstrapFonts]);
+                             bootstrapFonts,
+                             svgAssests]);

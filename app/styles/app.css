@@ -2,16 +2,6 @@ html, body {
   margin: 20px;
 }
 
-#svg-wrapper {
-  width: 600px;
-  height: 600px;
-}
-
-#snapsvg-wrapper {
-  width: 600px;
-  height: 600px;
-}
-
 .svgjs-rectangle-style {
   background: #FCFCFC;
 }
@@ -22,6 +12,16 @@ html, body {
 
 .snapsvg-clock-style {
   background: #70607A;
+}
+
+#svg-wrapper {
+  width: 600px;
+  height: 600px;
+}
+
+#snapsvg-wrapper {
+  width: 600px;
+  height: 600px;
 }
 
 /* Menu Button */
