@@ -2,9 +2,9 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'svg-101-prototype',
+    modulePrefix: 'emberjs-svg-examples',
     environment: environment,
-    baseURL: '/',
+    baseURL: '/emberjs-svg-examples',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
