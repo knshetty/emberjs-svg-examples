@@ -312,8 +312,8 @@
 
 @font-face {
   font-family: 'LeagueGothic';
-  src: url("/assets/fonts/league-gothic/league-gothic.eot");
-  src: url("/assets/fonts/league-gothic/league-gothic.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/league-gothic/league-gothic.woff") format("woff"), url("/assets/fonts/league-gothic/league-gothic.ttf") format("truetype"), url("/assets/fonts/league-gothic/league-gothic.svg#League_Gothic-webfont") format("svg");
+  src: url("/emberjs-svg-examples/assets/fonts/league-gothic/league-gothic.eot");
+  src: url("/emberjs-svg-examples/assets/fonts/league-gothic/league-gothic.eot?#iefix") format("embedded-opentype"), url("/emberjs-svg-examples/assets/fonts/league-gothic/league-gothic.woff") format("woff"), url("/emberjs-svg-examples/assets/fonts/league-gothic/league-gothic.ttf") format("truetype"), url("/emberjs-svg-examples/assets/fonts/league-gothic/league-gothic.svg#League_Gothic-webfont") format("svg");
   font-weight: normal;
   font-style: normal; }
 
