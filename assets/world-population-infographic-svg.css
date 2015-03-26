@@ -1,0 +1,492 @@
+.container-sun{
+  background-color: #2980b9;
+  text-align: center;
+  position: relative;
+}
+
+/* Sun: the svg element */
+.svg-sun{
+  width:300px;
+  height:300px;
+
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: 50% 50%;
+  -o-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: 50% 50%;
+
+-webkit-animation: spin 25s linear infinite, sun-glow 3s 0s linear infinite;
+-moz-animation: spin 25s linear infinite, sun-glow 3s 0s linear infinite;
+-o-animation: spin 25s linear infinite, sun-glow 3s 0s linear infinite;
+-ms-animation: spin 25s linear infinite, sun-glow 3s 0s ease-in-out infinite;
+animation: spin 25s linear infinite,sun-glow 3s 0s linear infinite;
+}
+
+/* Sun: the circle element in the svg itself */
+#sun{
+  stroke-width: 18;
+  stroke-dasharray: 2;
+  stroke-dashoffset: 2;
+}
+
+/* animation for the sun glowing effect */
+@-webkit-keyframes sun-glow {
+    0% { fill: #f1c40f; stroke: #f1c40f;}
+    50% { fill: #e67e22; stroke: #e67e22;}
+    100% { fill: #f1c40f; stroke: #f1c40f;}
+}
+@-moz-keyframes sun-glow {
+    0% { fill: #f1c40f; stroke: #f1c40f;}
+    50% { fill: #e67e22; stroke: #e67e22;}
+    100% { fill: #f1c40f; stroke: #f1c40f;}
+}
+@-o-keyframes sun-glow {
+    0% { fill: #f1c40f; stroke: #f1c40f;}
+    50% { fill: #e67e22; stroke: #e67e22;}
+    100% { fill: #f1c40f; stroke: #f1c40f;}
+}
+@-ms-keyframes sun-glow {
+    0% { fill: #f1c40f; stroke: #f1c40f;}
+    50% { fill: #e67e22; stroke: #e67e22;}
+    100% { fill: #f1c40f; stroke: #f1c40f;}
+}
+@keyframes sun-glow {
+    0% { fill: #f1c40f; stroke: #f1c40f;}
+    50% { fill: #e67e22; stroke: #e67e22;}
+    100% { fill: #f1c40f; stroke: #f1c40f;}
+}
+
+/* start sun spin animation */
+@-webkit-keyframes spin{
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-moz-keyframes spin{
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+@-o-keyframes spin{
+    100% {
+        -o-transform: rotate(360deg);
+    }
+}
+@-ms-keyframes spin{
+    100% {
+        -ms-transform: rotate(360deg);
+    }
+}
+@keyframes spin{
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Cloud: the svg element */
+.svg-cloud01 {
+    width: 55%;
+    height: 55%;
+    fill: #ecf0f1;
+    position: absolute;
+    top: 0;
+    left: -100px;
+    z-index: 100;
+    overflow-x: hidden;
+-webkit-animation: drift 25s linear infinite;
+-moz-animation: drift 25s linear infinite;
+-o-animation: drift 25s linear infinite;
+-ms-animation: drift 25s linear infinite;
+animation: drift 25s linear infinite;
+}
+
+.svg-cloud02 {
+    width: 34%;
+    height: 34%;
+    fill: #ecf0f1;
+    position: absolute;
+    top: 100px;
+    left: -100px;
+    z-index: 200;
+    overflow-x: hidden;
+-webkit-animation: drift 10s linear infinite backwards;
+-moz-animation: drift 10s linear infinite backwards;
+-o-animation: drift 10s linear infinite backwards;
+-ms-animation: drift 10s linear infinite backwards;
+animation: drift 10s linear infinite backwards;
+}
+
+/* Animation for the drifting clouds */
+@-webkit-keyframes drift {
+0% {opacity: 1;-webkit-transform: translateX(200px);}
+100% {opacity: 1;-webkit-transform: translateX(150%);}
+}
+@-moz-keyframes drift {
+0% {opacity: 1;-moz-transform: translateX(200px);}
+100% {opacity: 1;-moz-transform: translateX(150%);}
+}
+@-o-keyframes drift {
+0% {opacity: 1;-o-transform: translateX(200px);}
+100% {opacity: 1;-o-transform: translateX(150%);}
+}
+@-ms-keyframes drift {
+0% {opacity: 1;-ms-transform: translateX(200px);}
+100% {opacity: 1;-ms-transform: translateX(150%);}
+}
+@keyframes drift {
+    0% {opacity: 1;transform: translateX(200px);}
+    100% {opacity: 1;transform: translateX(150%);}
+}
+
+/* Globe: the svg element */
+.container-globe{
+  background-color: #1abc9c;
+  position: relative;
+  width: 100%;
+  padding-top: 0;
+  text-align: center;
+}
+
+.svg-earth{
+  width: 400px;
+  height: 400px;
+  fill: #16a085;
+
+-webkit-transform-origin: center center;
+-moz-transform-origin: 50% 50%;
+-o-transform-origin: center center;
+-ms-transform-origin: center center;
+transform-origin: 50% 50%;
+
+-webkit-animation:spin 20s ease-in-out infinite;
+-moz-animation:spin 20s ease-in-out infinite;
+-o-animation:spin 20s ease-in-out infinite;
+-ms-animation:spin 20s ease-in-out infinite;
+animation:spin 20s ease-in-out infinite;
+}
+
+.svg-man-01,
+.svg-man-02,
+.svg-man-03,
+.svg-man-04,
+.svg-man-05,
+.svg-man-06,
+.svg-man-07,
+.svg-man-08,
+.svg-man-09,
+.svg-man-10,
+.svg-man-11,
+.svg-man-12,
+.svg-man-13,
+.svg-man-14,
+.svg-man-15,
+.svg-man-16{
+    -webkit-transform-origin: 50% bottom;
+    -moz-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin:50% bottom;
+}
+
+.svg-man-01{
+    -webkit-animation:man-glow 5s ease-in-out alternate infinite 1s, big 5s infinite 1s;
+    -moz-animation:man-glow 5s ease-in-out alternate infinite 1s, big 5s infinite 1s;
+    -o-animation:man-glow 5s ease-in-out alternate infinite 1s, big 5s infinite 1s;
+    -ms-animation:man-glow 5s ease-in-out alternate infinite 1s, big 5s infinite 1s;
+    animation:man-glow 5s ease-in-out alternate infinite 1s, big 5s infinite 1s;
+}
+
+.svg-man-02{
+    -webkit-animation:man-glow 5s ease-in-out alternate infinite 2s, big 5s infinite 2s;
+    -moz-animation:man-glow 5s ease-in-out alternate infinite 2s, big 5s infinite 2s;
+    -o-animation:man-glow 5s ease-in-out alternate infinite 2s, big 5s infinite 2s;
+    -ms-animation:man-glow 5s ease-in-out alternate infinite 2s, big 5s infinite 2s;
+    animation:man-glow 5s ease-in-out alternate infinite 2s, big 5s infinite 2s;
+}
+
+.svg-man-03{
+    -webkit-animation:man-glow 5s ease-in-out alternate infinite 3s, big 5s infinite 3s;
+    -moz-animation:man-glow 5s ease-in-out alternate infinite 3s, big 5s infinite 3s;
+    -o-animation:man-glow 5s ease-in-out alternate infinite 3s, big 5s infinite 3s;
+    -ms-animation:man-glow 5s ease-in-out alternate infinite 3s, big 5s infinite 3s;
+    animation:man-glow 5s ease-in-out alternate infinite 3s, big 5s infinite 3s;
+}
+
+.svg-man-04{
+    -webkit-animation:man-glow 5s ease-in-out alternate infinite 4s, big 5s infinite 4s;
+    -moz-animation:man-glow 5s ease-in-out alternate infinite 4s, big 5s infinite 4s;
+    -o-animation:man-glow 5s ease-in-out alternate infinite 4s, big 5s infinite 4s;
+    -ms-animation:man-glow 5s ease-in-out alternate infinite 4s, big 5s infinite 4s;
+    animation:man-glow 5s ease-in-out alternate infinite 4s, big 5s infinite 4s;
+}
+
+.svg-man-05{
+    -webkit-animation:man-glow 5s ease-in-out alternate infinite 5s, big 5s infinite 5s;
+    -moz-animation:man-glow 5s ease-in-out alternate infinite 5s, big 5s infinite 5s;
+    -o-animation:man-glow 5s ease-in-out alternate infinite 5s, big 5s infinite 5s;
+    -ms-animation:man-glow 5s ease-in-out alternate infinite 5s, big 5s infinite 5s;
+    animation:man-glow 5s ease-in-out alternate infinite 5s, big 5s infinite 5s;
+}
+
+.svg-man-06{
+    -webkit-animation:man-glow 5s ease-in-out alternate infinite 6s, big 5s infinite 6s;
+    -moz-animation:man-glow 5s ease-in-out alternate infinite 6s, big 5s infinite 6s;
+    -o-animation:man-glow 5s ease-in-out alternate infinite 6s, big 5s infinite 6s;
+    -ms-animation:man-glow 5s ease-in-out alternate infinite 6s, big 5s infinite 6s;
+    animation:man-glow 5s ease-in-out alternate infinite 6s, big 5s infinite 6s;
+}
+
+.svg-man-07{
+    -webkit-animation:man-glow 5s ease-in-out alternate infinite 7s, big 5s infinite 7s;
+    -moz-animation:man-glow 5s ease-in-out alternate infinite 7s, big 5s infinite 7s;
+    -o-animation:man-glow 5s ease-in-out alternate infinite 7s, big 5s infinite 7s;
+    -ms-animation:man-glow 5s ease-in-out alternate infinite 7s, big 5s infinite 7s;
+    animation:man-glow 5s ease-in-out alternate infinite 7s, big 5s infinite 7s;
+}
+
+.svg-man-08{
+    -webkit-animation:man-glow 5s ease-in-out alternate infinite 8s, big 5s infinite 8s;
+    -moz-animation:man-glow 5s ease-in-out alternate infinite 8s, big 5s infinite 8s;
+    -o-animation:man-glow 5s ease-in-out alternate infinite 8s, big 5s infinite 8s;
+    -ms-animation:man-glow 5s ease-in-out alternate infinite 8s, big 5s infinite 8s;
+    animation:man-glow 5s ease-in-out alternate infinite 8s, big 5s infinite 8s;
+}
+
+.svg-man-09{
+    -webkit-animation:man-glow 5s ease-in-out alternate infinite 9s, big 5s infinite 9s;
+    -moz-animation:man-glow 5s ease-in-out alternate infinite 9s, big 5s infinite 9s;
+    -o-animation:man-glow 5s ease-in-out alternate infinite 9s, big 5s infinite 9s;
+    -ms-animation:man-glow 5s ease-in-out alternate infinite 9s, big 5s infinite 9s;
+    animation:man-glow 5s ease-in-out alternate infinite 9s, big 5s infinite 9s;
+}
+
+.svg-man-10{
+    -webkit-animation:man-glow 5s ease-in-out alternate infinite 10s, big 5s infinite 10s;
+    -moz-animation:man-glow 5s ease-in-out alternate infinite 10s, big 5s infinite 10s;
+    -o-animation:man-glow 5s ease-in-out alternate infinite 10s, big 5s infinite 10s;
+    -ms-animation:man-glow 5s ease-in-out alternate infinite 10s, big 5s infinite 10s;
+    animation:man-glow 5s ease-in-out alternate infinite 10s, big 5s infinite 10s;
+}
+
+.svg-man-11{
+    -webkit-animation:man-glow 5s ease-in-out alternate infinite 11s, big 5s infinite 11s;
+    -moz-animation:man-glow 5s ease-in-out alternate infinite 11s, big 5s infinite 11s;
+    -o-animation:man-glow 5s ease-in-out alternate infinite 11s, big 5s infinite 11s;
+    -ms-animation:man-glow 5s ease-in-out alternate infinite 11s, big 5s infinite 11s;
+    animation:man-glow 5s ease-in-out alternate infinite 11s, big 5s infinite 11s;
+}
+.svg-man-12{
+    -webkit-animation:man-glow 5s ease-in-out alternate infinite 12s, big 5s infinite 12s;
+    -moz-animation:man-glow 5s ease-in-out alternate infinite 12s, big 5s infinite 12s;
+    -o-animation:man-glow 5s ease-in-out alternate infinite 12s, big 5s infinite 12s;
+    -ms-animation:man-glow 5s ease-in-out alternate infinite 12s, big 5s infinite 12s;
+    animation:man-glow 5s ease-in-out alternate infinite 12s, big 5s infinite 12s;
+}
+
+.svg-man-13{
+    -webkit-animation:man-glow 5s ease-in-out alternate infinite 13s, big 5s infinite 13s;
+    -moz-animation:man-glow 5s ease-in-out alternate infinite 13s, big 5s infinite 13s;
+    -o-animation:man-glow 5s ease-in-out alternate infinite 13s, big 5s infinite 13s;
+    -ms-animation:man-glow 5s ease-in-out alternate infinite 13s, big 5s infinite 13s;
+    animation:man-glow 5s ease-in-out alternate infinite 13s, big 5s infinite 13s;
+}
+
+.svg-man-14{
+    -webkit-animation:man-glow 5s ease-in-out alternate infinite 14s, big 5s infinite 14s;
+    -moz-animation:man-glow 5s ease-in-out alternate infinite 14s, big 5s infinite 14s;
+    -o-animation:man-glow 5s ease-in-out alternate infinite 14s, big 5s infinite 14s;
+    -ms-animation:man-glow 5s ease-in-out alternate infinite 14s, big 5s infinite 14s;
+    animation:man-glow 5s ease-in-out alternate infinite 14s, big 5s infinite 14s;
+}
+
+.svg-man-15{
+    -webkit-animation:man-glow 5s ease-in-out alternate infinite 15s, big 5s infinite 15s;
+    -moz-animation:man-glow 5s ease-in-out alternate infinite 15s, big 5s infinite 15s;
+    -o-animation:man-glow 5s ease-in-out alternate infinite 15s, big 5s infinite 15s;
+    -ms-animation:man-glow 5s ease-in-out alternate infinite 15s, big 5s infinite 15s;
+    animation:man-glow 5s ease-in-out alternate infinite 15s, big 5s infinite 15s;
+}
+
+.svg-man-16{
+    -webkit-animation:man-glow 5s ease-in-out alternate infinite 16s, big 5s infinite 16s;
+    -moz-animation:man-glow 5s ease-in-out alternate infinite 16s, big 5s infinite 16s;
+    -o-animation:man-glow 5s ease-in-out alternate infinite 16s, big 5s infinite 16s;
+    -ms-animation:man-glow 5s ease-in-out alternate infinite 16s, big 5s infinite 16s;
+    animation:man-glow 5s ease-in-out alternate infinite 16s, big 5s infinite 16s;
+}
+
+@-webkit-keyframes man-glow{
+    0%{fill: #1abc9c;}
+    50%{fill: #16a085;}
+    100%{fill: #1abc9c;}
+}
+@-moz-keyframes man-glow{
+    0%{fill: #1abc9c;}
+    50%{fill: #16a085;}
+    100%{fill: #1abc9c;}
+}
+@-o-keyframes man-glow{
+    0%{fill: #1abc9c;}
+    50%{fill: #16a085;}
+    100%{fill: #1abc9c;}
+}
+@-ms-keyframes man-glow{
+    0%{fill: #1abc9c;}
+    50%{fill: #16a085;}
+    100%{fill: #1abc9c;}
+}
+@keyframes man-glow {
+    0%{fill: #1abc9c;}
+    50%{fill: #16a085;}
+    100%{fill: #1abc9c;}
+}
+@-webkit-keyframes big{
+    0% {
+        -webkit-transform: scale(0);
+    }
+    50%{
+        -webkit-transform: scale(1);
+    }
+    100% {
+        -webkit-transform: scale(0);
+    }
+}
+@-moz-keyframes big{
+    0% {
+        -moz-transform: scale(0);
+    }
+    50%{
+        -moz-transform: scale(1);
+    }
+    100% {
+        -moz-transform: scale(0);
+    }
+}
+@-o-keyframes big{
+    0% {
+        -o-transform: scale(0);
+    }
+    50%{
+        -o-transform: scale(1);
+    }
+    100% {
+        -o-transform: scale(0);
+    }
+}
+@-ms-keyframes big{
+    0% {
+        -ms-transform: scale(0);
+    }
+    50%{
+        -ms-transform: scale(1);
+    }
+    100% {
+        -ms-transform: scale(0);
+    }
+}
+@keyframes big{
+    0% {
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+@-webkit-keyframes spin{
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-moz-keyframes spin{
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+@-o-keyframes spin{
+    100% {
+        -o-transform: rotate(360deg);
+    }
+}
+@-ms-keyframes spin{
+    100% {
+        -ms-transform: rotate(360deg);
+    }
+}
+@keyframes spin{
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Europe: the svg element*/
+.container-europe{
+  background:#34495e;
+  height:460px;
+  width:100%;
+  position:relative;
+  padding-top:0;
+}
+.svg-europe{
+  position:absolute;
+  top:0;
+  left:0;
+  width:500px;
+  height:500px;
+  fill: #2ecc71;
+}
+.svg-europe:hover{
+    stroke:#abebc6;
+    stroke-dasharray: 0;
+    stroke-dashoffset: 800px;
+    stroke-width:3px;
+    stroke-linecap:round;
+}
+.svg-europe:hover{
+-moz-transition: stroke-dashoffset .5s linear infinite;
+-webkit-transition: stroke-dashoffset .5s linear infinite;
+-ms-transition: stroke-dashoffset .5s linear infinite;
+-o-transition: stroke-dashoffset .5s linear infinite;
+transition: stroke-dashoffset .5s linear infinite;
+}
+
+/* Stat-Europe: The svg element */
+.svgdonut{
+  width:100%;
+  height:439px;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.circle-back {
+  fill: none;
+  stroke: #ecf0f1;
+  stroke-width: 50px;
+}
+.circle-front {
+  fill: none;
+	stroke: #fc0023;
+	stroke-width: 40px;
+	/* 2 * Math.PI * radius + 1  */
+	stroke-dasharray: 439px; /*629*/
+	stroke-dashoffset: 439px;/*629*/
+
+	-webkit-transition: stroke-dashoffset .5s ease;
+	-moz-transition: stroke-dashoffset .5s ease;
+	-ms-transition: stroke-dashoffset .5s ease;
+	-o-transition: stroke-dashoffset .5s ease;
+	transition: stroke-dashoffset .5s ease;
+}
+.svgdonut.eleven-percent-filled .circle-front {
+	/* 439 * (1 - 0.11) */
+	stroke-dashoffset:390px; /* based on 439 */
+}
+.textpercentage{
+	font-family: "Oswald", sans-serif;
+	font-size: 1.1em;
+}
+.greentext{
+	fill:#2ecc71;
+}
