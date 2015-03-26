@@ -1,5 +1,5 @@
 /*!
- * Bootstrap v3.3.4 (http://getbootstrap.com)
+ * Bootstrap v3.3.2 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
@@ -958,22 +958,10 @@ th {
 .glyphicon-bitcoin:before {
   content: "\e227";
 }
-.glyphicon-btc:before {
-  content: "\e227";
-}
-.glyphicon-xbt:before {
-  content: "\e227";
-}
 .glyphicon-yen:before {
   content: "\00a5";
 }
-.glyphicon-jpy:before {
-  content: "\00a5";
-}
 .glyphicon-ruble:before {
-  content: "\20bd";
-}
-.glyphicon-rub:before {
   content: "\20bd";
 }
 .glyphicon-scale:before {
@@ -1172,9 +1160,6 @@ hr {
   margin: 0;
   overflow: visible;
   clip: auto;
-}
-[role="button"] {
-  cursor: pointer;
 }
 h1,
 h2,
@@ -2579,12 +2564,9 @@ output {
 .form-control[disabled],
 .form-control[readonly],
 fieldset[disabled] .form-control {
+  cursor: not-allowed;
   background-color: #eee;
   opacity: 1;
-}
-.form-control[disabled],
-fieldset[disabled] .form-control {
-  cursor: not-allowed;
 }
 textarea.form-control {
   height: auto;
@@ -2652,7 +2634,6 @@ input[type="search"] {
 }
 .radio-inline,
 .checkbox-inline {
-  position: relative;
   display: inline-block;
   padding-left: 20px;
   margin-bottom: 0;
@@ -2686,7 +2667,6 @@ fieldset[disabled] .checkbox label {
   cursor: not-allowed;
 }
 .form-control-static {
-  min-height: 34px;
   padding-top: 7px;
   padding-bottom: 7px;
   margin-bottom: 0;
@@ -2728,7 +2708,6 @@ select[multiple].form-group-sm .form-control {
 }
 .form-group-sm .form-control-static {
   height: 30px;
-  min-height: 32px;
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
@@ -2765,7 +2744,6 @@ select[multiple].form-group-lg .form-control {
 }
 .form-group-lg .form-control-static {
   height: 46px;
-  min-height: 38px;
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
@@ -3387,9 +3365,11 @@ input[type="button"].btn-block {
 }
 .collapse {
   display: none;
+  visibility: hidden;
 }
 .collapse.in {
   display: block;
+  visibility: visible;
 }
 tr.collapse.in {
   display: table-row;
@@ -3417,7 +3397,7 @@ tbody.collapse.in {
   height: 0;
   margin-left: 2px;
   vertical-align: middle;
-  border-top: 4px dashed;
+  border-top: 4px solid;
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
 }
@@ -4057,9 +4037,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .tab-content > .tab-pane {
   display: none;
+  visibility: hidden;
 }
 .tab-content > .active {
   display: block;
+  visibility: visible;
 }
 .nav-tabs .dropdown-menu {
   margin-top: -1px;
@@ -4106,6 +4088,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     height: auto !important;
     padding-bottom: 0;
     overflow: visible !important;
+    visibility: visible !important;
   }
   .navbar-collapse.in {
     overflow-y: visible;
@@ -4830,8 +4813,7 @@ a.label:focus {
   position: relative;
   top: -1px;
 }
-.btn-xs .badge,
-.btn-group-xs > .btn .badge {
+.btn-xs .badge {
   top: 0;
   padding: 1px 5px;
 }
@@ -5663,10 +5645,10 @@ a.list-group-item-danger.active:focus {
   height: 100%;
   border: 0;
 }
-.embed-responsive-16by9 {
+.embed-responsive.embed-responsive-16by9 {
   padding-bottom: 56.25%;
 }
-.embed-responsive-4by3 {
+.embed-responsive.embed-responsive-4by3 {
   padding-bottom: 75%;
 }
 .well {
@@ -5725,7 +5707,7 @@ button.close {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1050;
+  z-index: 1040;
   display: none;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
@@ -5768,12 +5750,10 @@ button.close {
           box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
 }
 .modal-backdrop {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
-  z-index: 1040;
   background-color: #000;
 }
 .modal-backdrop.fade {
@@ -5848,6 +5828,7 @@ button.close {
   font-size: 12px;
   font-weight: normal;
   line-height: 1.4;
+  visibility: visible;
   filter: alpha(opacity=0);
   opacity: 0;
 }
@@ -6367,6 +6348,7 @@ button.close {
 }
 .hidden {
   display: none !important;
+  visibility: hidden !important;
 }
 .affix {
   position: fixed;
@@ -7218,33 +7200,33 @@ button.close {
 
 .container-sun{
   background-color: #2980b9;
-  text-align: center;
   position: relative;
+  text-align: center;
 }
 
 /* Sun: the svg element */
 .svg-sun{
-  width:300px;
   height:300px;
+  width:300px;
 
-  -webkit-transform-origin: center center;
   -moz-transform-origin: 50% 50%;
-  -o-transform-origin: center center;
   -ms-transform-origin: center center;
+  -o-transform-origin: center center;
+  -webkit-transform-origin: center center;
   transform-origin: 50% 50%;
 
--webkit-animation: spin 25s linear infinite, sun-glow 3s 0s linear infinite;
--moz-animation: spin 25s linear infinite, sun-glow 3s 0s linear infinite;
--o-animation: spin 25s linear infinite, sun-glow 3s 0s linear infinite;
--ms-animation: spin 25s linear infinite, sun-glow 3s 0s ease-in-out infinite;
-animation: spin 25s linear infinite,sun-glow 3s 0s linear infinite;
+  -o-animation: spin 25s linear infinite, sun-glow 3s 0s linear infinite;
+  -moz-animation: spin 25s linear infinite, sun-glow 3s 0s linear infinite;
+  -ms-animation: spin 25s linear infinite, sun-glow 3s 0s ease-in-out infinite;
+  -webkit-animation: spin 25s linear infinite, sun-glow 3s 0s linear infinite;
+  animation: spin 25s linear infinite,sun-glow 3s 0s linear infinite;
 }
 
 /* Sun: the circle element in the svg itself */
 #sun{
-  stroke-width: 18;
   stroke-dasharray: 2;
   stroke-dashoffset: 2;
+  stroke-width: 18;
 }
 
 /* animation for the sun glowing effect */
@@ -7303,53 +7285,55 @@ animation: spin 25s linear infinite,sun-glow 3s 0s linear infinite;
 
 /* Cloud: the svg element */
 .svg-cloud01 {
-    width: 55%;
-    height: 55%;
-    fill: #ecf0f1;
-    position: absolute;
-    top: 0;
-    left: -100px;
-    z-index: 100;
-    overflow-x: hidden;
--webkit-animation: drift 25s linear infinite;
--moz-animation: drift 25s linear infinite;
--o-animation: drift 25s linear infinite;
--ms-animation: drift 25s linear infinite;
-animation: drift 25s linear infinite;
+  fill: #ecf0f1;
+  height: 55%;
+  left: -100px;
+  overflow-x: hidden;
+  position: absolute;
+  width: 55%;
+  top: 0;
+  z-index: 100;
+
+  -o-animation: drift 25s linear infinite;
+  -moz-animation: drift 25s linear infinite;
+  -ms-animation: drift 25s linear infinite;
+  -webkit-animation: drift 25s linear infinite;
+  animation: drift 25s linear infinite;
 }
 
 .svg-cloud02 {
-    width: 34%;
-    height: 34%;
-    fill: #ecf0f1;
-    position: absolute;
-    top: 100px;
-    left: -100px;
-    z-index: 200;
-    overflow-x: hidden;
--webkit-animation: drift 10s linear infinite backwards;
--moz-animation: drift 10s linear infinite backwards;
--o-animation: drift 10s linear infinite backwards;
--ms-animation: drift 10s linear infinite backwards;
-animation: drift 10s linear infinite backwards;
+  fill: #ecf0f1;
+  height: 34%;
+  left: -100px;
+  overflow-x: hidden;
+  position: absolute;
+  top: 100px;
+  width: 34%;
+  z-index: 200;
+
+  -o-animation: drift 10s linear infinite backwards;
+  -moz-animation: drift 10s linear infinite backwards;
+  -ms-animation: drift 10s linear infinite backwards;
+  -webkit-animation: drift 10s linear infinite backwards;
+  animation: drift 10s linear infinite backwards;
 }
 
 /* Animation for the drifting clouds */
 @-webkit-keyframes drift {
-0% {opacity: 1;-webkit-transform: translateX(200px);}
-100% {opacity: 1;-webkit-transform: translateX(150%);}
+  0% {opacity: 1;-webkit-transform: translateX(200px);}
+  100% {opacity: 1;-webkit-transform: translateX(150%);}
 }
 @-moz-keyframes drift {
-0% {opacity: 1;-moz-transform: translateX(200px);}
-100% {opacity: 1;-moz-transform: translateX(150%);}
+  0% {opacity: 1;-moz-transform: translateX(200px);}
+  100% {opacity: 1;-moz-transform: translateX(150%);}
 }
 @-o-keyframes drift {
-0% {opacity: 1;-o-transform: translateX(200px);}
-100% {opacity: 1;-o-transform: translateX(150%);}
+  0% {opacity: 1;-o-transform: translateX(200px);}
+  100% {opacity: 1;-o-transform: translateX(150%);}
 }
 @-ms-keyframes drift {
-0% {opacity: 1;-ms-transform: translateX(200px);}
-100% {opacity: 1;-ms-transform: translateX(150%);}
+  0% {opacity: 1;-ms-transform: translateX(200px);}
+  100% {opacity: 1;-ms-transform: translateX(150%);}
 }
 @keyframes drift {
     0% {opacity: 1;transform: translateX(200px);}
@@ -7359,28 +7343,28 @@ animation: drift 10s linear infinite backwards;
 /* Globe: the svg element */
 .container-globe{
   background-color: #1abc9c;
-  position: relative;
-  width: 100%;
   padding-top: 0;
+  position: relative;
   text-align: center;
+  width: 100%;
 }
 
 .svg-earth{
-  width: 400px;
-  height: 400px;
   fill: #16a085;
+  height: 400px;
+  width: 400px;
 
--webkit-transform-origin: center center;
--moz-transform-origin: 50% 50%;
--o-transform-origin: center center;
--ms-transform-origin: center center;
-transform-origin: 50% 50%;
+  -o-transform-origin: center center;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: center center;
+  -webkit-transform-origin: center center;
+  transform-origin: 50% 50%;
 
--webkit-animation:spin 20s ease-in-out infinite;
--moz-animation:spin 20s ease-in-out infinite;
--o-animation:spin 20s ease-in-out infinite;
--ms-animation:spin 20s ease-in-out infinite;
-animation:spin 20s ease-in-out infinite;
+  -o-animation:spin 20s ease-in-out infinite;
+  -ms-animation:spin 20s ease-in-out infinite;
+  -moz-animation:spin 20s ease-in-out infinite;
+  -webkit-animation:spin 20s ease-in-out infinite;
+  animation:spin 20s ease-in-out infinite;
 }
 
 .svg-man-01,
@@ -7399,303 +7383,266 @@ animation:spin 20s ease-in-out infinite;
 .svg-man-14,
 .svg-man-15,
 .svg-man-16{
-    -webkit-transform-origin: 50% bottom;
-    -moz-transform-origin: 50% 50%;
-    -o-transform-origin: 50% 50%;
-    -ms-transform-origin: 50% 50%;
-    transform-origin:50% bottom;
+  -o-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% bottom;
+  transform-origin:50% bottom;
 }
 
 .svg-man-01{
-    -webkit-animation:man-glow 5s ease-in-out alternate infinite 1s, big 5s infinite 1s;
-    -moz-animation:man-glow 5s ease-in-out alternate infinite 1s, big 5s infinite 1s;
-    -o-animation:man-glow 5s ease-in-out alternate infinite 1s, big 5s infinite 1s;
-    -ms-animation:man-glow 5s ease-in-out alternate infinite 1s, big 5s infinite 1s;
-    animation:man-glow 5s ease-in-out alternate infinite 1s, big 5s infinite 1s;
+  animation:man-glow 5s ease-in-out alternate infinite 1s, big 5s infinite 1s;
+  -o-animation:man-glow 5s ease-in-out alternate infinite 1s, big 5s infinite 1s;
+  -moz-animation:man-glow 5s ease-in-out alternate infinite 1s, big 5s infinite 1s;
+  -ms-animation:man-glow 5s ease-in-out alternate infinite 1s, big 5s infinite 1s;
+  -webkit-animation:man-glow 5s ease-in-out alternate infinite 1s, big 5s infinite 1s;
 }
 
 .svg-man-02{
-    -webkit-animation:man-glow 5s ease-in-out alternate infinite 2s, big 5s infinite 2s;
-    -moz-animation:man-glow 5s ease-in-out alternate infinite 2s, big 5s infinite 2s;
-    -o-animation:man-glow 5s ease-in-out alternate infinite 2s, big 5s infinite 2s;
-    -ms-animation:man-glow 5s ease-in-out alternate infinite 2s, big 5s infinite 2s;
-    animation:man-glow 5s ease-in-out alternate infinite 2s, big 5s infinite 2s;
+  animation:man-glow 5s ease-in-out alternate infinite 2s, big 5s infinite 2s;
+  -o-animation:man-glow 5s ease-in-out alternate infinite 2s, big 5s infinite 2s;
+  -moz-animation:man-glow 5s ease-in-out alternate infinite 2s, big 5s infinite 2s;
+  -ms-animation:man-glow 5s ease-in-out alternate infinite 2s, big 5s infinite 2s;
+  -webkit-animation:man-glow 5s ease-in-out alternate infinite 2s, big 5s infinite 2s;
 }
 
 .svg-man-03{
-    -webkit-animation:man-glow 5s ease-in-out alternate infinite 3s, big 5s infinite 3s;
-    -moz-animation:man-glow 5s ease-in-out alternate infinite 3s, big 5s infinite 3s;
-    -o-animation:man-glow 5s ease-in-out alternate infinite 3s, big 5s infinite 3s;
-    -ms-animation:man-glow 5s ease-in-out alternate infinite 3s, big 5s infinite 3s;
-    animation:man-glow 5s ease-in-out alternate infinite 3s, big 5s infinite 3s;
+  animation:man-glow 5s ease-in-out alternate infinite 3s, big 5s infinite 3s;
+  -o-animation:man-glow 5s ease-in-out alternate infinite 3s, big 5s infinite 3s;
+  -moz-animation:man-glow 5s ease-in-out alternate infinite 3s, big 5s infinite 3s;
+  -ms-animation:man-glow 5s ease-in-out alternate infinite 3s, big 5s infinite 3s;
+  -webkit-animation:man-glow 5s ease-in-out alternate infinite 3s, big 5s infinite 3s;
 }
 
 .svg-man-04{
-    -webkit-animation:man-glow 5s ease-in-out alternate infinite 4s, big 5s infinite 4s;
-    -moz-animation:man-glow 5s ease-in-out alternate infinite 4s, big 5s infinite 4s;
-    -o-animation:man-glow 5s ease-in-out alternate infinite 4s, big 5s infinite 4s;
-    -ms-animation:man-glow 5s ease-in-out alternate infinite 4s, big 5s infinite 4s;
-    animation:man-glow 5s ease-in-out alternate infinite 4s, big 5s infinite 4s;
+  animation:man-glow 5s ease-in-out alternate infinite 4s, big 5s infinite 4s;
+  -o-animation:man-glow 5s ease-in-out alternate infinite 4s, big 5s infinite 4s;
+  -moz-animation:man-glow 5s ease-in-out alternate infinite 4s, big 5s infinite 4s;
+  -ms-animation:man-glow 5s ease-in-out alternate infinite 4s, big 5s infinite 4s;
+  -webkit-animation:man-glow 5s ease-in-out alternate infinite 4s, big 5s infinite 4s;
 }
 
 .svg-man-05{
-    -webkit-animation:man-glow 5s ease-in-out alternate infinite 5s, big 5s infinite 5s;
-    -moz-animation:man-glow 5s ease-in-out alternate infinite 5s, big 5s infinite 5s;
-    -o-animation:man-glow 5s ease-in-out alternate infinite 5s, big 5s infinite 5s;
-    -ms-animation:man-glow 5s ease-in-out alternate infinite 5s, big 5s infinite 5s;
-    animation:man-glow 5s ease-in-out alternate infinite 5s, big 5s infinite 5s;
+  animation:man-glow 5s ease-in-out alternate infinite 5s, big 5s infinite 5s;
+  -o-animation:man-glow 5s ease-in-out alternate infinite 5s, big 5s infinite 5s;
+  -moz-animation:man-glow 5s ease-in-out alternate infinite 5s, big 5s infinite 5s;
+  -ms-animation:man-glow 5s ease-in-out alternate infinite 5s, big 5s infinite 5s;
+  -webkit-animation:man-glow 5s ease-in-out alternate infinite 5s, big 5s infinite 5s;
 }
 
 .svg-man-06{
-    -webkit-animation:man-glow 5s ease-in-out alternate infinite 6s, big 5s infinite 6s;
-    -moz-animation:man-glow 5s ease-in-out alternate infinite 6s, big 5s infinite 6s;
-    -o-animation:man-glow 5s ease-in-out alternate infinite 6s, big 5s infinite 6s;
-    -ms-animation:man-glow 5s ease-in-out alternate infinite 6s, big 5s infinite 6s;
-    animation:man-glow 5s ease-in-out alternate infinite 6s, big 5s infinite 6s;
+  animation:man-glow 5s ease-in-out alternate infinite 6s, big 5s infinite 6s;
+  -o-animation:man-glow 5s ease-in-out alternate infinite 6s, big 5s infinite 6s;
+  -moz-animation:man-glow 5s ease-in-out alternate infinite 6s, big 5s infinite 6s;
+  -ms-animation:man-glow 5s ease-in-out alternate infinite 6s, big 5s infinite 6s;
+  -webkit-animation:man-glow 5s ease-in-out alternate infinite 6s, big 5s infinite 6s;
 }
 
 .svg-man-07{
-    -webkit-animation:man-glow 5s ease-in-out alternate infinite 7s, big 5s infinite 7s;
-    -moz-animation:man-glow 5s ease-in-out alternate infinite 7s, big 5s infinite 7s;
-    -o-animation:man-glow 5s ease-in-out alternate infinite 7s, big 5s infinite 7s;
-    -ms-animation:man-glow 5s ease-in-out alternate infinite 7s, big 5s infinite 7s;
-    animation:man-glow 5s ease-in-out alternate infinite 7s, big 5s infinite 7s;
+  animation:man-glow 5s ease-in-out alternate infinite 7s, big 5s infinite 7s;
+  -o-animation:man-glow 5s ease-in-out alternate infinite 7s, big 5s infinite 7s;
+  -moz-animation:man-glow 5s ease-in-out alternate infinite 7s, big 5s infinite 7s;
+  -ms-animation:man-glow 5s ease-in-out alternate infinite 7s, big 5s infinite 7s;
+  -webkit-animation:man-glow 5s ease-in-out alternate infinite 7s, big 5s infinite 7s;
 }
 
 .svg-man-08{
-    -webkit-animation:man-glow 5s ease-in-out alternate infinite 8s, big 5s infinite 8s;
-    -moz-animation:man-glow 5s ease-in-out alternate infinite 8s, big 5s infinite 8s;
-    -o-animation:man-glow 5s ease-in-out alternate infinite 8s, big 5s infinite 8s;
-    -ms-animation:man-glow 5s ease-in-out alternate infinite 8s, big 5s infinite 8s;
-    animation:man-glow 5s ease-in-out alternate infinite 8s, big 5s infinite 8s;
+  animation:man-glow 5s ease-in-out alternate infinite 8s, big 5s infinite 8s;
+  -o-animation:man-glow 5s ease-in-out alternate infinite 8s, big 5s infinite 8s;
+  -moz-animation:man-glow 5s ease-in-out alternate infinite 8s, big 5s infinite 8s;
+  -ms-animation:man-glow 5s ease-in-out alternate infinite 8s, big 5s infinite 8s;
+  -webkit-animation:man-glow 5s ease-in-out alternate infinite 8s, big 5s infinite 8s;
 }
 
 .svg-man-09{
-    -webkit-animation:man-glow 5s ease-in-out alternate infinite 9s, big 5s infinite 9s;
-    -moz-animation:man-glow 5s ease-in-out alternate infinite 9s, big 5s infinite 9s;
-    -o-animation:man-glow 5s ease-in-out alternate infinite 9s, big 5s infinite 9s;
-    -ms-animation:man-glow 5s ease-in-out alternate infinite 9s, big 5s infinite 9s;
-    animation:man-glow 5s ease-in-out alternate infinite 9s, big 5s infinite 9s;
+  animation:man-glow 5s ease-in-out alternate infinite 9s, big 5s infinite 9s;
+  -o-animation:man-glow 5s ease-in-out alternate infinite 9s, big 5s infinite 9s;
+  -moz-animation:man-glow 5s ease-in-out alternate infinite 9s, big 5s infinite 9s;
+  -ms-animation:man-glow 5s ease-in-out alternate infinite 9s, big 5s infinite 9s;
+  -webkit-animation:man-glow 5s ease-in-out alternate infinite 9s, big 5s infinite 9s;
 }
 
 .svg-man-10{
-    -webkit-animation:man-glow 5s ease-in-out alternate infinite 10s, big 5s infinite 10s;
-    -moz-animation:man-glow 5s ease-in-out alternate infinite 10s, big 5s infinite 10s;
-    -o-animation:man-glow 5s ease-in-out alternate infinite 10s, big 5s infinite 10s;
-    -ms-animation:man-glow 5s ease-in-out alternate infinite 10s, big 5s infinite 10s;
-    animation:man-glow 5s ease-in-out alternate infinite 10s, big 5s infinite 10s;
+  animation:man-glow 5s ease-in-out alternate infinite 10s, big 5s infinite 10s;
+  -o-animation:man-glow 5s ease-in-out alternate infinite 10s, big 5s infinite 10s;
+  -moz-animation:man-glow 5s ease-in-out alternate infinite 10s, big 5s infinite 10s;
+  -ms-animation:man-glow 5s ease-in-out alternate infinite 10s, big 5s infinite 10s;
+  -webkit-animation:man-glow 5s ease-in-out alternate infinite 10s, big 5s infinite 10s;
 }
 
 .svg-man-11{
-    -webkit-animation:man-glow 5s ease-in-out alternate infinite 11s, big 5s infinite 11s;
-    -moz-animation:man-glow 5s ease-in-out alternate infinite 11s, big 5s infinite 11s;
-    -o-animation:man-glow 5s ease-in-out alternate infinite 11s, big 5s infinite 11s;
-    -ms-animation:man-glow 5s ease-in-out alternate infinite 11s, big 5s infinite 11s;
-    animation:man-glow 5s ease-in-out alternate infinite 11s, big 5s infinite 11s;
+  animation:man-glow 5s ease-in-out alternate infinite 11s, big 5s infinite 11s;
+  -o-animation:man-glow 5s ease-in-out alternate infinite 11s, big 5s infinite 11s;
+  -moz-animation:man-glow 5s ease-in-out alternate infinite 11s, big 5s infinite 11s;
+  -ms-animation:man-glow 5s ease-in-out alternate infinite 11s, big 5s infinite 11s;
+  -webkit-animation:man-glow 5s ease-in-out alternate infinite 11s, big 5s infinite 11s;
 }
+
 .svg-man-12{
-    -webkit-animation:man-glow 5s ease-in-out alternate infinite 12s, big 5s infinite 12s;
-    -moz-animation:man-glow 5s ease-in-out alternate infinite 12s, big 5s infinite 12s;
-    -o-animation:man-glow 5s ease-in-out alternate infinite 12s, big 5s infinite 12s;
-    -ms-animation:man-glow 5s ease-in-out alternate infinite 12s, big 5s infinite 12s;
-    animation:man-glow 5s ease-in-out alternate infinite 12s, big 5s infinite 12s;
+  animation:man-glow 5s ease-in-out alternate infinite 12s, big 5s infinite 12s;
+  -o-animation:man-glow 5s ease-in-out alternate infinite 12s, big 5s infinite 12s;
+  -moz-animation:man-glow 5s ease-in-out alternate infinite 12s, big 5s infinite 12s;
+  -ms-animation:man-glow 5s ease-in-out alternate infinite 12s, big 5s infinite 12s;
+  -webkit-animation:man-glow 5s ease-in-out alternate infinite 12s, big 5s infinite 12s;
 }
 
 .svg-man-13{
-    -webkit-animation:man-glow 5s ease-in-out alternate infinite 13s, big 5s infinite 13s;
-    -moz-animation:man-glow 5s ease-in-out alternate infinite 13s, big 5s infinite 13s;
-    -o-animation:man-glow 5s ease-in-out alternate infinite 13s, big 5s infinite 13s;
-    -ms-animation:man-glow 5s ease-in-out alternate infinite 13s, big 5s infinite 13s;
-    animation:man-glow 5s ease-in-out alternate infinite 13s, big 5s infinite 13s;
+  animation:man-glow 5s ease-in-out alternate infinite 13s, big 5s infinite 13s;
+  -o-animation:man-glow 5s ease-in-out alternate infinite 13s, big 5s infinite 13s;
+  -moz-animation:man-glow 5s ease-in-out alternate infinite 13s, big 5s infinite 13s;
+  -ms-animation:man-glow 5s ease-in-out alternate infinite 13s, big 5s infinite 13s;
+  -webkit-animation:man-glow 5s ease-in-out alternate infinite 13s, big 5s infinite 13s;
 }
 
 .svg-man-14{
-    -webkit-animation:man-glow 5s ease-in-out alternate infinite 14s, big 5s infinite 14s;
-    -moz-animation:man-glow 5s ease-in-out alternate infinite 14s, big 5s infinite 14s;
-    -o-animation:man-glow 5s ease-in-out alternate infinite 14s, big 5s infinite 14s;
-    -ms-animation:man-glow 5s ease-in-out alternate infinite 14s, big 5s infinite 14s;
-    animation:man-glow 5s ease-in-out alternate infinite 14s, big 5s infinite 14s;
+  animation:man-glow 5s ease-in-out alternate infinite 14s, big 5s infinite 14s;
+  -o-animation:man-glow 5s ease-in-out alternate infinite 14s, big 5s infinite 14s;
+  -moz-animation:man-glow 5s ease-in-out alternate infinite 14s, big 5s infinite 14s;
+  -ms-animation:man-glow 5s ease-in-out alternate infinite 14s, big 5s infinite 14s;
+  -webkit-animation:man-glow 5s ease-in-out alternate infinite 14s, big 5s infinite 14s;
 }
 
 .svg-man-15{
-    -webkit-animation:man-glow 5s ease-in-out alternate infinite 15s, big 5s infinite 15s;
-    -moz-animation:man-glow 5s ease-in-out alternate infinite 15s, big 5s infinite 15s;
-    -o-animation:man-glow 5s ease-in-out alternate infinite 15s, big 5s infinite 15s;
-    -ms-animation:man-glow 5s ease-in-out alternate infinite 15s, big 5s infinite 15s;
-    animation:man-glow 5s ease-in-out alternate infinite 15s, big 5s infinite 15s;
+  animation:man-glow 5s ease-in-out alternate infinite 15s, big 5s infinite 15s;
+  -o-animation:man-glow 5s ease-in-out alternate infinite 15s, big 5s infinite 15s;
+  -moz-animation:man-glow 5s ease-in-out alternate infinite 15s, big 5s infinite 15s;
+  -ms-animation:man-glow 5s ease-in-out alternate infinite 15s, big 5s infinite 15s;
+  -webkit-animation:man-glow 5s ease-in-out alternate infinite 15s, big 5s infinite 15s;
 }
 
 .svg-man-16{
-    -webkit-animation:man-glow 5s ease-in-out alternate infinite 16s, big 5s infinite 16s;
-    -moz-animation:man-glow 5s ease-in-out alternate infinite 16s, big 5s infinite 16s;
-    -o-animation:man-glow 5s ease-in-out alternate infinite 16s, big 5s infinite 16s;
-    -ms-animation:man-glow 5s ease-in-out alternate infinite 16s, big 5s infinite 16s;
-    animation:man-glow 5s ease-in-out alternate infinite 16s, big 5s infinite 16s;
+  animation:man-glow 5s ease-in-out alternate infinite 16s, big 5s infinite 16s;
+  -o-animation:man-glow 5s ease-in-out alternate infinite 16s, big 5s infinite 16s;
+  -moz-animation:man-glow 5s ease-in-out alternate infinite 16s, big 5s infinite 16s;
+  -ms-animation:man-glow 5s ease-in-out alternate infinite 16s, big 5s infinite 16s;
+  -webkit-animation:man-glow 5s ease-in-out alternate infinite 16s, big 5s infinite 16s;
 }
 
 @-webkit-keyframes man-glow{
-    0%{fill: #1abc9c;}
-    50%{fill: #16a085;}
-    100%{fill: #1abc9c;}
+  0%{fill: #1abc9c;}
+  50%{fill: #16a085;}
+  100%{fill: #1abc9c;}
 }
 @-moz-keyframes man-glow{
-    0%{fill: #1abc9c;}
-    50%{fill: #16a085;}
-    100%{fill: #1abc9c;}
+  0%{fill: #1abc9c;}
+  50%{fill: #16a085;}
+  100%{fill: #1abc9c;}
 }
 @-o-keyframes man-glow{
-    0%{fill: #1abc9c;}
-    50%{fill: #16a085;}
-    100%{fill: #1abc9c;}
+  0%{fill: #1abc9c;}
+  50%{fill: #16a085;}
+  100%{fill: #1abc9c;}
 }
 @-ms-keyframes man-glow{
-    0%{fill: #1abc9c;}
-    50%{fill: #16a085;}
-    100%{fill: #1abc9c;}
+  0%{fill: #1abc9c;}
+  50%{fill: #16a085;}
+  100%{fill: #1abc9c;}
 }
 @keyframes man-glow {
-    0%{fill: #1abc9c;}
-    50%{fill: #16a085;}
-    100%{fill: #1abc9c;}
+  0%{fill: #1abc9c;}
+  50%{fill: #16a085;}
+  100%{fill: #1abc9c;}
 }
 @-webkit-keyframes big{
-    0% {
-        -webkit-transform: scale(0);
-    }
-    50%{
-        -webkit-transform: scale(1);
-    }
-    100% {
-        -webkit-transform: scale(0);
-    }
+  0% {-webkit-transform: scale(0);}
+  50%{-webkit-transform: scale(1);}
+  100%{-webkit-transform: scale(0);}
 }
 @-moz-keyframes big{
-    0% {
-        -moz-transform: scale(0);
-    }
-    50%{
-        -moz-transform: scale(1);
-    }
-    100% {
-        -moz-transform: scale(0);
-    }
+  0%{-moz-transform: scale(0);}
+  50%{-moz-transform: scale(1);}
+  100%{-moz-transform: scale(0);}
 }
 @-o-keyframes big{
-    0% {
-        -o-transform: scale(0);
-    }
-    50%{
-        -o-transform: scale(1);
-    }
-    100% {
-        -o-transform: scale(0);
-    }
+  0%{-o-transform: scale(0);}
+  50%{-o-transform: scale(1);}
+  100%{-o-transform: scale(0);}
 }
 @-ms-keyframes big{
-    0% {
-        -ms-transform: scale(0);
-    }
-    50%{
-        -ms-transform: scale(1);
-    }
-    100% {
-        -ms-transform: scale(0);
-    }
+  0%{-ms-transform: scale(0);}
+  50%{-ms-transform: scale(1);}
+  100%{-ms-transform: scale(0);}
 }
 @keyframes big{
-    0% {
-        transform: scale(0);
-    }
-    50%{
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(0);
-    }
+  0%{transform: scale(0);}
+  50%{transform: scale(1);}
+  100%{transform: scale(0);}
 }
 @-webkit-keyframes spin{
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
+  100%{-webkit-transform: rotate(360deg);}
 }
 @-moz-keyframes spin{
-    100% {
-        -moz-transform: rotate(360deg);
-    }
+  100%{-moz-transform: rotate(360deg);}
 }
 @-o-keyframes spin{
-    100% {
-        -o-transform: rotate(360deg);
-    }
+  100% {-o-transform: rotate(360deg);}
 }
 @-ms-keyframes spin{
-    100% {
-        -ms-transform: rotate(360deg);
-    }
+  100%{-ms-transform: rotate(360deg);}
 }
 @keyframes spin{
-    100% {
-        transform: rotate(360deg);
-    }
+  100%{transform: rotate(360deg);}
 }
 
 /* Europe: the svg element*/
 .container-europe{
   background:#34495e;
-  height:460px;
-  width:100%;
-  position:relative;
+  height:650px;
   padding-top:0;
+  position:relative;
+  width:100%;
 }
 .svg-europe{
-  position:absolute;
-  top:0;
-  left:0;
-  width:500px;
-  height:500px;
   fill: #2ecc71;
+  height:500px;
+  left:0;
+  margin-left:144px;
+  position:absolute;
+  top:100;
+  width:500px;
 }
 .svg-europe:hover{
-    stroke:#abebc6;
-    stroke-dasharray: 0;
-    stroke-dashoffset: 800px;
-    stroke-width:3px;
-    stroke-linecap:round;
+  stroke:#abebc6;
+  stroke-dasharray:0;
+  stroke-dashoffset:800px;
+  stroke-linecap:round;
+  stroke-width:3px;
 }
 .svg-europe:hover{
--moz-transition: stroke-dashoffset .5s linear infinite;
--webkit-transition: stroke-dashoffset .5s linear infinite;
--ms-transition: stroke-dashoffset .5s linear infinite;
--o-transition: stroke-dashoffset .5s linear infinite;
-transition: stroke-dashoffset .5s linear infinite;
+  transition: stroke-dashoffset .5s linear infinite;
+  -o-transition: stroke-dashoffset .5s linear infinite;
+  -moz-transition: stroke-dashoffset .5s linear infinite;
+  -ms-transition: stroke-dashoffset .5s linear infinite;
+  -webkit-transition: stroke-dashoffset .5s linear infinite;
 }
 
 /* Stat-Europe: The svg element */
 .svgdonut{
-  width:100%;
   height:439px;
-  position: absolute;
-  top:0;
   left:0;
+  margin-left:144px;
+  position: absolute;
+  top:100;
+  width:100%;
 }
 .circle-back {
-  fill: none;
-  stroke: #ecf0f1;
-  stroke-width: 50px;
+  fill:none;
+  stroke:#ecf0f1;
+  stroke-width:50px;
 }
 .circle-front {
-  fill: none;
-	stroke: #fc0023;
-	stroke-width: 40px;
+  fill:none;
+	stroke:#fc0023;
+	stroke-width:40px;
 	/* 2 * Math.PI * radius + 1  */
 	stroke-dasharray: 439px; /*629*/
 	stroke-dashoffset: 439px;/*629*/
 
-	-webkit-transition: stroke-dashoffset .5s ease;
+	transition: stroke-dashoffset .5s ease;
+	-o-transition: stroke-dashoffset .5s ease;
 	-moz-transition: stroke-dashoffset .5s ease;
 	-ms-transition: stroke-dashoffset .5s ease;
-	-o-transition: stroke-dashoffset .5s ease;
-	transition: stroke-dashoffset .5s ease;
+	-webkit-transition: stroke-dashoffset .5s ease;
 }
 .svgdonut.eleven-percent-filled .circle-front {
 	/* 439 * (1 - 0.11) */
@@ -7708,4 +7655,104 @@ transition: stroke-dashoffset .5s linear infinite;
 .greentext{
 	fill:#2ecc71;
 }
+
+/* Title - Header1
+========================================================================== */
+.container-europe h1,
+.container-america h1,
+.container-asia h1,
+.container-oceania h1 {
+  color: #ecf0f1;
+}
+
+h1 {
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: 2.1em;
+  letter-spacing: 0.03em;
+  line-height: 1.3em;
+  margin-bottom: 1.5rem;
+  margin-top: 0rem;
+  text-align: center;
+}
+
+.container-europe p {
+  color: #ecf0f1;
+  font-size: 133%;
+  margin: 0 auto;
+  max-width: 40rem;
+  text-align: center;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 2rem auto;
+  width: 3rem;
+}
+@media (min-width: 40rem) {
+  hr {
+    margin: 2.5rem auto;
+  }
+}
+
+
+/* Intro
+========================================================================== */
+.title {
+  background: #3498db;
+}
+
+/* Header
+========================================================================== */
+header {
+  text-align: center;
+}
+
+.intro {
+  margin: 2rem 0;
+}
+
+@media (min-width: 40rem) {
+  .intro {
+    margin: 4rem 0;
+  }
+}
+
+header h1 {
+  border: 2px dotted #fff;
+  border-radius: 2px;
+  color: #fff;
+  display: inline-block;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+  padding: .4rem .6rem;
+  text-transform: uppercase;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+
+header p {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 auto;
+}
+
+header a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: underline;
+}
+
+header a:hover {
+  text-decoration: none;
+}
+
+.mobile {
+  margin: 0 auto;
+  max-width: 150px;
+}
+
+@media (min-width: 40rem) {
+  .mobile {
+    max-width: 250px; } }
 
