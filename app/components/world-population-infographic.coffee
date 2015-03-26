@@ -3,6 +3,7 @@
 WorldPopulationInfographicComponent = Ember.Component.extend(
 
   snapsvgInit: ->
+    @set('draw_title', Snap('#title-worldpopulation-svg-wrapper'))
     @set('draw_sun', Snap('#sun-worldpopulation-svg-wrapper'))
     @set('draw_cloud1', Snap('#cloud1-worldpopulation-svg-wrapper'))
     @set('draw_cloud2', Snap('#cloud2-worldpopulation-svg-wrapper'))
@@ -14,6 +15,7 @@ WorldPopulationInfographicComponent = Ember.Component.extend(
   # --- rendered its template into DOM ---
   didInsertElement: ->
     @snapsvgInit()
+
     # --- Render: Sun ---
     s_sun = @get('draw_sun')
     s_sun.addClass('svg-sun')
