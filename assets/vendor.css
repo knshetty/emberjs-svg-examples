@@ -7198,6 +7198,57 @@ button.close {
   -o-animation-delay: 3s;
   animation-delay: 3s; }
 
+/* Intro
+========================================================================== */
+.title {
+  background: #3498db;
+}
+
+/* --- Header --- */
+header {
+  text-align: center;
+}
+
+.intro {
+  margin: 2rem 0;
+}
+
+@media (min-width: 40rem) {
+  .intro {
+    margin: 4rem 0;
+  }
+}
+
+header h1 {
+  border: 2px dotted #fff;
+  border-radius: 2px;
+  color: #fff;
+  display: inline-block;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+  padding: .4rem .6rem;
+  text-transform: uppercase;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+
+header p {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 auto;
+}
+
+header a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: underline;
+}
+
+header a:hover {
+  text-decoration: none;
+}
+
+/* Sun
+========================================================================== */
 .container-sun{
   background-color: #2980b9;
   position: relative;
@@ -7283,6 +7334,8 @@ button.close {
     }
 }
 
+/* Cloud
+========================================================================== */
 /* Cloud: the svg element */
 .svg-cloud01 {
   fill: #ecf0f1;
@@ -7340,6 +7393,8 @@ button.close {
     100% {opacity: 1;transform: translateX(150%);}
 }
 
+/* Glode
+========================================================================== */
 /* Globe: the svg element */
 .container-globe{
   background-color: #1abc9c;
@@ -7584,22 +7639,25 @@ button.close {
   100%{transform: rotate(360deg);}
 }
 
+/* Europe
+========================================================================== */
 /* Europe: the svg element*/
 .container-europe{
   background:#34495e;
-  height:650px;
+  height:620px;
   padding-top:0;
   position:relative;
   width:100%;
 }
 .svg-europe{
   fill: #2ecc71;
-  height:500px;
+  height:430px;
   left:0;
   margin-left:144px;
+  margin-top:40px;
   position:absolute;
   top:100;
-  width:500px;
+  width:430px;
 }
 .svg-europe:hover{
   stroke:#abebc6;
@@ -7616,6 +7674,8 @@ button.close {
   -webkit-transition: stroke-dashoffset .5s linear infinite;
 }
 
+/* Stat-Europe
+========================================================================== */
 /* Stat-Europe: The svg element */
 .svgdonut{
   height:439px;
@@ -7632,7 +7692,7 @@ button.close {
 }
 .circle-front {
   fill:none;
-	stroke:#fc0023;
+	stroke:#F03852;
 	stroke-width:40px;
 	/* 2 * Math.PI * radius + 1  */
 	stroke-dasharray: 439px; /*629*/
@@ -7656,8 +7716,7 @@ button.close {
 	fill:#2ecc71;
 }
 
-/* Title - Header1
-========================================================================== */
+/* --- Stat-Title - Header1 --- */
 .container-europe h1,
 .container-america h1,
 .container-asia h1,
@@ -7695,64 +7754,4 @@ hr {
     margin: 2.5rem auto;
   }
 }
-
-
-/* Intro
-========================================================================== */
-.title {
-  background: #3498db;
-}
-
-/* Header
-========================================================================== */
-header {
-  text-align: center;
-}
-
-.intro {
-  margin: 2rem 0;
-}
-
-@media (min-width: 40rem) {
-  .intro {
-    margin: 4rem 0;
-  }
-}
-
-header h1 {
-  border: 2px dotted #fff;
-  border-radius: 2px;
-  color: #fff;
-  display: inline-block;
-  font-size: 1.8rem;
-  letter-spacing: 0.1em;
-  margin-bottom: 2rem;
-  padding: .4rem .6rem;
-  text-transform: uppercase;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-}
-
-header p {
-  color: rgba(255, 255, 255, 0.8);
-  margin: 0 auto;
-}
-
-header a {
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: underline;
-}
-
-header a:hover {
-  text-decoration: none;
-}
-
-.mobile {
-  margin: 0 auto;
-  max-width: 150px;
-}
-
-@media (min-width: 40rem) {
-  .mobile {
-    max-width: 250px; } }
 
