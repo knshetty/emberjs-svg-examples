@@ -487,6 +487,9 @@ header a:hover {
 .greentext{
 	fill:#2ecc71;
 }
+.orangetext{
+	fill:#E74C3C;
+}
 .svgdonut.sevenhalf-percent-filled .circle-front {
 	/* 439 * (1 - 0.074) */
 	stroke-dashoffset:407px; /* based on 439 */
@@ -495,13 +498,21 @@ header a:hover {
 	/* 439 * (1 - 0.047) */
 	stroke-dashoffset:418px; /* based on 439 */
 }
+.svgdonut.eight-percent-filled .circle-front {
+	/* 439 * (1 - 0.082) */
+	stroke-dashoffset:403px; /* based on 439 */
+}
 
 /* --- Stat-Title - Header1 --- */
 .container-europe h1,
 .container-northamerica h1,
+.container-southamerica h1,
 .container-asia h1,
 .container-oceania h1 {
   color: #ecf0f1;
+}
+.container-southamerica h1 {
+  color: #555;
 }
 h1 {
   font-family: "Oswald", sans-serif;
@@ -515,9 +526,17 @@ h1 {
 }
 .container-europe p,
 .container-northamerica p,
+.container-southamerica p,
 .container-asia p,
 .container-oceania p {
   color: #ecf0f1;
+  font-size: 133%;
+  margin: 0 auto;
+  max-width: 40rem;
+  text-align: center;
+}
+.container-southamerica p {
+  color: #C0392B;
   font-size: 133%;
   margin: 0 auto;
   max-width: 40rem;
@@ -563,6 +582,41 @@ hr {
   stroke-width:0.5px;
 }
 .svg-northamerica:hover{
+  transition: stroke-dashoffset .5s linear infinite;
+  -o-transition: stroke-dashoffset .5s linear infinite;
+  -moz-transition: stroke-dashoffset .5s linear infinite;
+  -ms-transition: stroke-dashoffset .5s linear infinite;
+  -webkit-transition: stroke-dashoffset .5s linear infinite;
+}
+
+/* South-America
+========================================================================== */
+/* South-America: the svg element*/
+.container-southamerica{
+  background:#f1c40f;
+  height:620px;
+  padding-top:0;
+  position:relative;
+  width:100%;
+}
+.svg-southamerica{
+  fill: #F39C12;
+  height:430px;
+  left:0;
+  margin-left:144px;
+  margin-top:40px;
+  position:absolute;
+  top:100;
+  width:430px;
+}
+.svg-southamerica:hover{
+  stroke:#E67E22;
+  stroke-dasharray:0;
+  stroke-dashoffset:800px;
+  stroke-linecap:round;
+  stroke-width:0.5px;
+}
+.svg-southamerica:hover{
   transition: stroke-dashoffset .5s linear infinite;
   -o-transition: stroke-dashoffset .5s linear infinite;
   -moz-transition: stroke-dashoffset .5s linear infinite;
