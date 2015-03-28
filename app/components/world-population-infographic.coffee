@@ -14,6 +14,8 @@ WorldPopulationInfographicComponent = Ember.Component.extend(
     @set('draw_stat_northamerica', Snap('#stat-northamerica-worldpopulation-svg-wrapper'))
     @set('draw_southamerica', Snap('#southamerica-worldpopulation-svg-wrapper'))
     @set('draw_stat_southamerica', Snap('#stat-southamerica-worldpopulation-svg-wrapper'))
+    @set('draw_africa', Snap('#africa-worldpopulation-svg-wrapper'))
+    @set('draw_stat_africa', Snap('#stat-africa-worldpopulation-svg-wrapper'))
 
   # --- We can initialize snap.svg only after ember has ---
   # --- rendered its template into DOM ---
@@ -145,6 +147,26 @@ WorldPopulationInfographicComponent = Ember.Component.extend(
 
     setTimeout(
       -> s_stat_southamerica.addClass('eight-percent-filled')
+      2000
+    )
+
+    # --- Render: South-America ---
+    s_africa = @get('draw_africa')
+    africa_mainland = s_africa.path("M94.42,37.32l-2.638,7.907l-12.775,12.38l1.418,14.804l-6.692,7.095l0.406,4.878l-4.056,2.638l-1.22,5.266l-8.924,7.303    L52.436,100l-7.914-20.286l-1.621-10.946l2.836-4.061l-6.282-12.782l-0.609-5.475l-6.896-3.042l-14.402,2.84L5.58,35.494    l0.412-13.18c0,0,10.743-14.401,10.946-15.014c0.208-0.603,4.665-5.473,4.665-5.473l5.478,0.401L40.878,0l2.023,1.415    l-0.203,4.469l10.143,3.235l4.665-2.422l14.809,4.861l-0.406,3.648l8.318,17.042l6.489,5.072H94.42z")
+    madagascar = s_africa.polygon(91.782,68.152,93.408,73.636,89.148,85.391,85.699,85.802,85.496,79.506,85.293,74.24)
+    s_africa.g(africa_mainland, madagascar)
+
+    # --- Render: Stat-Africa ---
+    s_stat_africa = @get('draw_stat_africa')
+    c1 = s_stat_africa.circle(cx="115", cy="115", r="70").addClass("circle-back")
+    c2 = s_stat_africa.circle(cx="115", cy="115", cr="70").addClass("circle-front").attr({transform: "r-90"})
+    s_stat_africa.g(c1,c2)
+
+    txt = s_stat_africa.text(x="35%", y="50%", "25.1%").addClass("orangetext")
+    s_stat_africa.g(txt).addClass("textpercentage")
+
+    setTimeout(
+      -> s_stat_africa.addClass('twentyfive-percent-filled')
       2000
     )
 )
