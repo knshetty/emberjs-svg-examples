@@ -10,6 +10,8 @@ WorldPopulationInfographicComponent = Ember.Component.extend(
     @set('draw_globe', Snap('#globe-worldpopulation-svg-wrapper'))
     @set('draw_europe', Snap('#europe-worldpopulation-svg-wrapper'))
     @set('draw_stat_europe', Snap('#stat-europe-worldpopulation-svg-wrapper'))
+    @set('draw_northamerica', Snap('#northamerica-worldpopulation-svg-wrapper'))
+    @set('draw_stat_northamerica', Snap('#stat-northamerica-worldpopulation-svg-wrapper'))
 
   # --- We can initialize snap.svg only after ember has ---
   # --- rendered its template into DOM ---
@@ -83,11 +85,38 @@ WorldPopulationInfographicComponent = Ember.Component.extend(
     c2 = s_stat_europe.circle(cx="115", cy="115", cr="70").addClass("circle-front").attr({transform: "r-90"})
     s_stat_europe.g(c1,c2)
 
-    txt = s_stat_europe.text(x="35%", y="50%", "+ 11,2%").addClass("greentext")
+    txt = s_stat_europe.text(x="35%", y="50%", "7.4%").addClass("greentext")
     s_stat_europe.g(txt).addClass("textpercentage")
 
     setTimeout(
-      -> s_stat_europe.addClass('eleven-percent-filled')
+      -> s_stat_europe.addClass('sevenhalf-percent-filled')
+      2000
+    )
+
+    # --- Render: Europe ---
+    s_northamerica = @get('draw_northamerica')
+    s_northamerica.path("M8.939,0.561l21.38,4.638l20.249,1.131h3.054l3.281,1.244h3.506l-2.376,2.828l-0.68,1.697l3.734-0.679
+		l2.828-1.245c0,0,2.149,0.905,2.489,0.905s4.298-0.113,4.298-0.113l-4.978,2.941l-0.679,2.828l1.811,6.9c0,0,2.262-3.281,2.149-3.62
+		c-0.115-0.339-1.134-2.715-1.018-3.054c0.112-0.34,1.694-3.281,1.694-3.281l1.02-0.905l2.262,1.131l-1.244,3.28l0.679,1.018
+		l1.131-1.357l1.584,1.697l-1.472,2.489l2.603,1.81l5.431-4.639l-0.565-1.357l3.62-0.226l1.132-1.243l-0.792-1.471l0.792-2.603
+		l5.656-1.471l2.262-1.81l0.904-4.865h2.714l1.02,3.168L100,8.476l-4.865,3.62l-0.677,3.168l2.261,2.037l-5.316,2.488l-0.564,2.49
+		l-0.907,2.941l-1.924-0.565l-1.356,3.621l3.057,5.542L80.659,45.81l1.018,3.618l4.412,7.015v2.941l-1.697,1.132l-4.185-4.638
+		l-0.114-3.507l-3.507-3.053l-2.263,2.035L71.38,49.43l-6.447,0.907l0.905,2.262l-9.503-0.451l-6.787,3.619l-1.583,3.395l1.016,2.602
+		l-3.957-1.583l-3.847-6.449l-2.376-1.922l-2.149,1.81l-3.167-1.696l-1.245-3.28l-1.81-2.489h-4.186l-0.339,1.133l-12.896-4.978
+		l-4.073-1.245l-0.565-2.715l-4.978-2.487l-1.017-6.449v-2.376l-1.697-4.412v-1.131L0,19.457l1.358-2.148l0.341-3.734l3.507-7.353
+		L4.526,0l3.167,4.186L8.939,0.561z")
+
+    # --- Render: Stat-North-America ---
+    s_stat_northamerica = @get('draw_stat_northamerica')
+    c1 = s_stat_northamerica.circle(cx="115", cy="115", r="70").addClass("circle-back")
+    c2 = s_stat_northamerica.circle(cx="115", cy="115", cr="70").addClass("circle-front").attr({transform: "r-90"})
+    s_stat_northamerica.g(c1,c2)
+
+    txt = s_stat_northamerica.text(x="35%", y="50%", "4.7%").addClass("greentext")
+    s_stat_northamerica.g(txt).addClass("textpercentage")
+
+    setTimeout(
+      -> s_stat_northamerica.addClass('five-percent-filled')
       2000
     )
 )
