@@ -490,6 +490,9 @@ header a:hover {
 .orangetext{
 	fill:#E74C3C;
 }
+.yellowtext{
+	fill:#F1C40F;
+}
 .svgdonut.sevenhalf-percent-filled .circle-front {
 	/* 439 * (1 - 0.074) */
 	stroke-dashoffset:407px; /* based on 439 */
@@ -505,6 +508,10 @@ header a:hover {
 .svgdonut.twentyfive-percent-filled .circle-front {
 	/* 439 * (1 - 0.251) */
 	stroke-dashoffset:329px; /* based on 439 */
+}
+.svgdonut.fiftyfour-percent-filled .circle-front {
+	/* 439 * (1 - 0.541) */
+	stroke-dashoffset:202px; /* based on 439 */
 }
 
 /* --- Stat-Title - Header1 --- */
@@ -658,6 +665,41 @@ hr {
   stroke-width:0.5px;
 }
 .svg-africa:hover{
+  transition: stroke-dashoffset .5s linear infinite;
+  -o-transition: stroke-dashoffset .5s linear infinite;
+  -moz-transition: stroke-dashoffset .5s linear infinite;
+  -ms-transition: stroke-dashoffset .5s linear infinite;
+  -webkit-transition: stroke-dashoffset .5s linear infinite;
+}
+
+/* Asia
+========================================================================== */
+/* Asia: the svg element*/
+.container-asia{
+  background:#9B59B6;
+  height:620px;
+  padding-top:0;
+  position:relative;
+  width:100%;
+}
+.svg-asia{
+  fill:#F1C40F;
+  height:480px;
+  left:0;
+  margin-left:144px;
+  margin-top:40px;
+  position:absolute;
+  top:100;
+  width:480px;
+}
+.svg-asia:hover{
+  stroke:#D35400;
+  stroke-dasharray:0;
+  stroke-dashoffset:800px;
+  stroke-linecap:round;
+  stroke-width:0.5px;
+}
+.svg-asia:hover{
   transition: stroke-dashoffset .5s linear infinite;
   -o-transition: stroke-dashoffset .5s linear infinite;
   -moz-transition: stroke-dashoffset .5s linear infinite;
