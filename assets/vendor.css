@@ -7713,6 +7713,10 @@ header a:hover {
 	/* 439 * (1 - 0.541) */
 	stroke-dashoffset:202px; /* based on 439 */
 }
+.svgdonut.pointsix-percent-filled .circle-front {
+	/* 439 * (1 - 0.006) */
+	stroke-dashoffset:436px; /* based on 439 */
+}
 
 /* --- Stat-Title - Header1 --- */
 .container-europe h1,
@@ -7900,6 +7904,41 @@ hr {
   stroke-width:0.5px;
 }
 .svg-asia:hover{
+  transition: stroke-dashoffset .5s linear infinite;
+  -o-transition: stroke-dashoffset .5s linear infinite;
+  -moz-transition: stroke-dashoffset .5s linear infinite;
+  -ms-transition: stroke-dashoffset .5s linear infinite;
+  -webkit-transition: stroke-dashoffset .5s linear infinite;
+}
+
+/* Oceania
+========================================================================== */
+/* Oceania: the svg element*/
+.container-oceania{
+  background:#8E44AD;
+  height:610px;
+  padding-top:0;
+  position:relative;
+  width:100%;
+}
+.svg-oceania{
+  fill:#E67E22;
+  height:480px;
+  left:0;
+  margin-left:144px;
+  margin-top:40px;
+  position:absolute;
+  top:100;
+  width:480px;
+}
+.svg-oceania:hover{
+  stroke:#D35400;
+  stroke-dasharray:0;
+  stroke-dashoffset:800px;
+  stroke-linecap:round;
+  stroke-width:0.5px;
+}
+.svg-oceania:hover{
   transition: stroke-dashoffset .5s linear infinite;
   -o-transition: stroke-dashoffset .5s linear infinite;
   -moz-transition: stroke-dashoffset .5s linear infinite;
