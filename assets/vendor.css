@@ -7702,6 +7702,10 @@ header a:hover {
 	/* 439 * (1 - 0.082) */
 	stroke-dashoffset:403px; /* based on 439 */
 }
+.svgdonut.twentyfive-percent-filled .circle-front {
+	/* 439 * (1 - 0.251) */
+	stroke-dashoffset:329px; /* based on 439 */
+}
 
 /* --- Stat-Title - Header1 --- */
 .container-europe h1,
@@ -7711,7 +7715,8 @@ header a:hover {
 .container-oceania h1 {
   color: #ecf0f1;
 }
-.container-southamerica h1 {
+.container-southamerica h1,
+.container-africa h1 {
   color: #555;
 }
 h1 {
@@ -7735,7 +7740,8 @@ h1 {
   max-width: 40rem;
   text-align: center;
 }
-.container-southamerica p {
+.container-southamerica p,
+.container-africa p {
   color: #C0392B;
   font-size: 133%;
   margin: 0 auto;
@@ -7817,6 +7823,41 @@ hr {
   stroke-width:0.5px;
 }
 .svg-southamerica:hover{
+  transition: stroke-dashoffset .5s linear infinite;
+  -o-transition: stroke-dashoffset .5s linear infinite;
+  -moz-transition: stroke-dashoffset .5s linear infinite;
+  -ms-transition: stroke-dashoffset .5s linear infinite;
+  -webkit-transition: stroke-dashoffset .5s linear infinite;
+}
+
+/* Africa
+========================================================================== */
+/* Africa: the svg element*/
+.container-africa{
+  background:#F39C12;
+  height:660px;
+  padding-top:0;
+  position:relative;
+  width:100%;
+}
+.svg-africa{
+  fill: #F1C40F;
+  height:430px;
+  left:0;
+  margin-left:144px;
+  margin-top:40px;
+  position:absolute;
+  top:100;
+  width:430px;
+}
+.svg-africa:hover{
+  stroke:#E67E22;
+  stroke-dasharray:0;
+  stroke-dashoffset:800px;
+  stroke-linecap:round;
+  stroke-width:0.5px;
+}
+.svg-africa:hover{
   transition: stroke-dashoffset .5s linear infinite;
   -o-transition: stroke-dashoffset .5s linear infinite;
   -moz-transition: stroke-dashoffset .5s linear infinite;
