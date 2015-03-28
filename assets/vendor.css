@@ -7936,7 +7936,7 @@ hr {
   stroke-dasharray:0;
   stroke-dashoffset:800px;
   stroke-linecap:round;
-  stroke-width:0.5px;
+  stroke-width:0.2px;
 }
 .svg-oceania:hover{
   transition: stroke-dashoffset .5s linear infinite;
