@@ -40,7 +40,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.baseURL = '/emberjs-svg-examples/';
+    ENV.baseURL = '/emberjs-svg-examples';
   }
 
   return ENV;
