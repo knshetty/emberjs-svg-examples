@@ -79,9 +79,11 @@ app.import('bower_components/ember-addons.bs_for_ember/dist/js/bs-wizard.min.js'
 // --- SVG assests ---
 app.import('app/styles/intraday-designer-infographic-svg.css');
 app.import('app/styles/world-population-infographic-svg.css');
+app.import('app/styles/reflection-technology-stack-svg.css');
 var svgAssests = pickFiles('app/svgs', {
   srcDir: '/',
-  files: ['intraday-designer-infographic.svg'],
+  files: ['intraday-designer-infographic.svg',
+          'reflection-technology-stack.svg'],
   destDir: '/assets'
 });
 

@@ -8,6 +8,7 @@ Router.map ->
   @resource 'sandbox', ->
     @route 'infographic'
     @route 'worldpopulation'
+    @route 'techstack'
   @resource 'svgjs', ->
     @route 'rectangle'
     @route 'clock'
