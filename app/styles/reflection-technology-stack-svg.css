@@ -1,3 +1,4 @@
+/* --- Gloabal Initialisation --- */
 [id$=sticker], [id$=label], [id$=mascot] {
   -webkit-transition: -webkit-transform 0.25s ease-in-out;
   -moz-transition: -moz-transform 0.25s ease-in-out;
@@ -5,6 +6,7 @@
   transition: transform 0.25s ease-in-out;
 }
 
+/* --- Sticker Initialisation --- */
 [id$=sticker] {
   -webkit-transform: scale(0.6, 0.6);
   -moz-transform: scale(0.6, 0.6);
@@ -12,7 +14,6 @@
   -o-transform: scale(0.6, 0.6);
   transform: scale(0.6, 0.6);
 }
-
 #emberjs-sticker {
   -webkit-transform-origin: 105px 1010px;
   -moz-transform-origin: 105px 1010px;;
@@ -20,7 +21,6 @@
   -o-transform-origin: 105px 1010px;
   transform-origin: 105px 1010px;
 }
-
 #bower-sticker {
   -webkit-transform-origin: 105px 1010px;
   -moz-transform-origin: 105px 1010px;
@@ -29,15 +29,7 @@
   transform-origin: 105px 1010px;
 }
 
-g #emberjs:hover [id$=sticker], g #emberjs:hover [id$=mascot],
-  g #bower:hover [id$=sticker], g #bower:hover [id$=mascot] {
-  -webkit-transform: scale(1, 1);
-  -moz-transform: scale(1, 1);
-  -ms-transform: scale(1, 1);
-  -o-transform: scale(1, 1);
-  transform: scale(1, 1);
-}
-
+/* --- Label Initialisation --- */
 [id$=label] {
   -webkit-transform: scale(0.97) translate(-15px, 48px);
   -moz-transform: scale(0.97) translate(-15px, 48px);
@@ -45,7 +37,6 @@ g #emberjs:hover [id$=sticker], g #emberjs:hover [id$=mascot],
   -o-transform: scale(0.97) translate(-15px, 48px);
   transform: scale(0.97) translate(-15px, 48px);
 }
-
 #emberjs-label {
   -webkit-transform-origin: 0px 0px;
   -moz-transform-origin: 0px 0px;
@@ -53,7 +44,6 @@ g #emberjs:hover [id$=sticker], g #emberjs:hover [id$=mascot],
   -o-transform-origin: 0px 0px;
   transform-origin: 0px 0px;
 }
-
 #bower-label {
   -webkit-transform-origin: -2010px 30px;
   -moz-transform-origin: -2010px 30px;
@@ -62,14 +52,7 @@ g #emberjs:hover [id$=sticker], g #emberjs:hover [id$=mascot],
   transform-origin: -2010px 30px;
 }
 
-g #emberjs:hover [id$=label], g #bower:hover [id$=label] {
-  -webkit-transform: scale(1) translate(0px, 0px);
-  -moz-transform: scale(1) translate(0px, 0px);
-  -ms-transform: scale(1) translate(0px, 0px);
-  -o-transform: scale(1) translate(0px, 0px);
-  transform: scale(1) translate(0px, 0px);
-}
-
+/* --- Mascot Initialisation --- */
 [id$=mascot] {
   -webkit-transform: scale(0, 0);
   -moz-transform: scale(0, 0);
@@ -77,7 +60,6 @@ g #emberjs:hover [id$=label], g #bower:hover [id$=label] {
   -o-transform: scale(0, 0);
   transform: scale(0, 0);
 }
-
 #emberjs-mascot {
   -webkit-transform-origin: 105px 1010px;
   -moz-transform-origin: 105px 1010px;
@@ -85,11 +67,44 @@ g #emberjs:hover [id$=label], g #bower:hover [id$=label] {
   -o-transform-origin: 105px 1010px;
   transform-origin: 105px 1010px;
 }
-
 #bower-mascot {
   -webkit-transform-origin: 185px 1010px;
   -moz-transform-origin: 185px 1010px;
   -ms-transform-origin: 185px 1010px;
   -o-transform-origin: 185px 1010px;
   transform-origin: 185px 1010px;
+}
+
+/* --- Hover Animation --- */
+/* Animate Sticker & Mascot */
+g #emberjs:hover [id$=sticker], g #emberjs:hover [id$=mascot],
+  g #bower:hover [id$=sticker], g #bower:hover [id$=mascot] {
+  -webkit-transform: scale(1, 1);
+  -moz-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  -o-transform: scale(1, 1);
+  transform: scale(1, 1);
+}
+/* Animate Label */
+g #emberjs:hover [id$=label], g #bower:hover [id$=label] {
+  -webkit-transform: scale(1) translate(0px, 0px);
+  -moz-transform: scale(1) translate(0px, 0px);
+  -ms-transform: scale(1) translate(0px, 0px);
+  -o-transform: scale(1) translate(0px, 0px);
+  transform: scale(1) translate(0px, 0px);
+}
+/* On Animation: Move Right Container Slightly To Right-Handside */
+g #emberjs:hover + #bower [id$=sticker] {
+  -webkit-transform-origin: 105px 1010px;
+  -moz-transform-origin: 105px 1010px;
+  -ms-transform-origin: 105px 1010px;
+  -o-transform-origin: 105px 1010px;
+  transform-origin: 155px 1010px;
+}
+g #emberjs:hover + #bower [id$=label] {
+  -webkit-transform-origin: -1310px 30px;
+  -moz-transform-origin: -1310px 30px;
+  -ms-transform-origin: -1310px 30px;
+  -o-transform-origin: -1310px 30px;
+  transform-origin: -1310px 30px;
 }
