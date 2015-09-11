@@ -3,7 +3,7 @@
   -webkit-transition: -webkit-transform 0.25s ease-in-out;
   -moz-transition: -moz-transform 0.25s ease-in-out;
   -o-transition: -o-transform 0.25s ease-in-out;
-  transition: transform 0.95s ease-in-out;
+  transition: transform 0.25s ease-in-out;
 }
 
 /* --- Sticker Initialisation --- */
