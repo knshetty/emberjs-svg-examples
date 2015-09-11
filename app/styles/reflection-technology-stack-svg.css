@@ -3,7 +3,7 @@
   -webkit-transition: -webkit-transform 0.25s ease-in-out;
   -moz-transition: -moz-transform 0.25s ease-in-out;
   -o-transition: -o-transform 0.25s ease-in-out;
-  transition: transform 0.25s ease-in-out;
+  transition: transform 0.95s ease-in-out;
 }
 
 /* --- Sticker Initialisation --- */
@@ -74,25 +74,25 @@
   transform: scale(0, 0);
 }
 #emberjs-mascot {
-  -webkit-transform-origin: 105px 1010px;
-  -moz-transform-origin: 105px 1010px;
-  -ms-transform-origin: 105px 1010px;
-  -o-transform-origin: 105px 1010px;
-  transform-origin: 105px 1010px;
+  -webkit-transform-origin: 90px 1010px;
+  -moz-transform-origin: 90px 1010px;
+  -ms-transform-origin: 90px 1010px;
+  -o-transform-origin: 90px 1010px;
+  transform-origin: 90px 1010px;
 }
 #bower-mascot {
-  -webkit-transform-origin: 185px 1010px;
-  -moz-transform-origin: 185px 1010px;
-  -ms-transform-origin: 185px 1010px;
-  -o-transform-origin: 185px 1010px;
-  transform-origin: 185px 1010px;
+  -webkit-transform-origin: 175px 1010px;
+  -moz-transform-origin: 175px 1010px;
+  -ms-transform-origin: 175px 1010px;
+  -o-transform-origin: 175px 1010px;
+  transform-origin: 175px 1010px;
 }
 #broccolijs-mascot {
-  -webkit-transform-origin: 265px 1010px;
-  -moz-transform-origin: 265px 1010px;
-  -ms-transform-origin: 265px 1010px;
-  -o-transform-origin: 265px 1010px;
-  transform-origin: 265px 1010px;
+  -webkit-transform-origin: 255px 1010px;
+  -moz-transform-origin: 255px 1010px;
+  -ms-transform-origin: 255px 1010px;
+  -o-transform-origin: 255px 1010px;
+  transform-origin: 255px 1010px;
 }
 
 /* --- Hover Animation --- */
@@ -139,11 +139,11 @@ g #emberjs:hover + #bower + #broccolijs [id$=sticker] {
   transform-origin: 245px 1010px;
 }
 g #emberjs:hover + #bower + #broccolijs [id$=label] {
-  -webkit-transform-origin: -655px 30px;
-  -moz-transform-origin: -655px 30px;
-  -ms-transform-origin: -655px 30px;
-  -o-transform-origin: -655px 30px;
-  transform-origin: -655px 30px;
+  -webkit-transform-origin: -735px 30px;
+  -moz-transform-origin: -735px 30px;
+  -ms-transform-origin: -735px 30px;
+  -o-transform-origin: -735px 30px;
+  transform-origin: -735px 30px;
 }
 /* Hover on Bower*/
 g #bower:hover + #broccolijs [id$=sticker] {
@@ -154,9 +154,9 @@ g #bower:hover + #broccolijs [id$=sticker] {
   transform-origin: 385px 1010px;
 }
 g #bower:hover + #broccolijs [id$=label] {
-  -webkit-transform-origin: 1000px 30px;
-  -moz-transform-origin: 1000px 30px;
-  -ms-transform-origin: 1000px 30px;
-  -o-transform-origin: 1000px 30px;
-  transform-origin: 1000px 30px;
+  -webkit-transform-origin: 1120px 30px;
+  -moz-transform-origin: 1120px 30px;
+  -ms-transform-origin: 1120px 30px;
+  -o-transform-origin: 1120px 30px;
+  transform-origin: 1120px 30px;
 }
