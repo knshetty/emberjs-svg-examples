@@ -3,7 +3,7 @@
 ReflectionTechnologyStackComponent = Ember.Component.extend(
 
   snapsvgInit: ->
-    draw = Snap('#svgstage-wrapper-techstack')
+    draw = Snap('#techstack-svg')
     @set('draw', draw)
 
   # We can initialize snap.svg only after ember
