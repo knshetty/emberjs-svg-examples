@@ -65,25 +65,40 @@
 }
 /* Row 3 */
 #bootstrap-sticker {
-  -webkit-transform-origin: 105px 1070px;
-  -moz-transform-origin: 105px 1070px;;
-  -ms-transform-origin: 105px 1070px;
-  -o-transform-origin: 105px 1070px;
-  transform-origin: 105px 1070px;
+  -webkit-transform-origin: 105px 1068px;
+  -moz-transform-origin: 105px 1068px;;
+  -ms-transform-origin: 105px 1068px;
+  -o-transform-origin: 105px 1068px;
+  transform-origin: 105px 1068px;
 }
 #jquery-sticker {
-  -webkit-transform-origin: 105px 1070px;
-  -moz-transform-origin: 105px 1070px;
-  -ms-transform-origin: 105px 1070px;
-  -o-transform-origin: 105px 1070px;
-  transform-origin: 105px 1070px;
+  -webkit-transform-origin: 105px 1068px;
+  -moz-transform-origin: 105px 1068px;
+  -ms-transform-origin: 105px 1068px;
+  -o-transform-origin: 105px 1068px;
+  transform-origin: 105px 1068px;
 }
 #booemb-sticker {
-  -webkit-transform-origin: 195px 1070px;
-  -moz-transform-origin: 195px 1070px;
-  -ms-transform-origin: 195px 1070px;
-  -o-transform-origin: 195px 1070px;
-  transform-origin: 195px 1070px;
+  -webkit-transform-origin: 195px 1068px;
+  -moz-transform-origin: 195px 1068px;
+  -ms-transform-origin: 195px 1068px;
+  -o-transform-origin: 195px 1068px;
+  transform-origin: 195px 1068px;
+}
+/* Row 4 */
+#impressjs-sticker {
+  -webkit-transform-origin: 105px 1111px;
+  -moz-transform-origin: 105px 1111px;;
+  -ms-transform-origin: 105px 1111px;
+  -o-transform-origin: 105px 1111px;
+  transform-origin: 105px 1111px;
+}
+#mapbox-sticker {
+  -webkit-transform-origin: 105px 1111px;
+  -moz-transform-origin: 105px 1111px;
+  -ms-transform-origin: 105px 1111px;
+  -o-transform-origin: 105px 1111px;
+  transform-origin: 105px 1111px;
 }
 
 /* --- Label Initialisation --- */
@@ -160,6 +175,21 @@
   -o-transform-origin: -1400px -525px;
   transform-origin: -1400px -525px;
 }
+/* Row 4 */
+#impressjs-label {
+  -webkit-transform-origin: 90px -475px;
+  -moz-transform-origin: 90px -475px;
+  -ms-transform-origin: 90px -475px;
+  -o-transform-origin: 90px -475px;
+  transform-origin: 90px -475px;
+}
+#mapbox-label {
+  -webkit-transform-origin: -2000px -475px;
+  -moz-transform-origin: -2000px -475px;
+  -ms-transform-origin: -2000px -475px;
+  -o-transform-origin: -2000px -475px;
+  transform-origin: -2000px -475px;
+}
 
 /* --- Mascot Initialisation --- */
 [id$=mascot] {
@@ -234,6 +264,21 @@
   -o-transform-origin: 254px 1100px;
   transform-origin: 254px 1100px;
 }
+/* Row 4 */
+#impressjs-mascot {
+  -webkit-transform-origin: 87px 1145px;
+  -moz-transform-origin: 87px 1145px;
+  -ms-transform-origin: 87px 1145px;
+  -o-transform-origin: 87px 1145px;
+  transform-origin: 87px 1145px;
+}
+#mapbox-mascot {
+  -webkit-transform-origin: 170px 1145px;
+  -moz-transform-origin: 170px 1145px;
+  -ms-transform-origin: 170px 1145px;
+  -o-transform-origin: 170px 1145px;
+  transform-origin: 170px 1145px;
+}
 
 /* --- Hover Animation --- */
 /* Animate Sticker & Mascot */
@@ -245,7 +290,9 @@ g #emberjs:hover [id$=sticker], g #emberjs:hover [id$=mascot],
   g #handlebars:hover [id$=sticker], g #handlebars:hover [id$=mascot],
   g #bootstrap:hover [id$=sticker], g #bootstrap:hover [id$=mascot],
   g #jquery:hover [id$=sticker], g #jquery:hover [id$=mascot],
-  g #booemb:hover [id$=sticker], g #booemb:hover [id$=mascot] {
+  g #booemb:hover [id$=sticker], g #booemb:hover [id$=mascot],
+  g #impressjs:hover [id$=sticker], g #impressjs:hover [id$=mascot],
+  g #mapbox:hover [id$=sticker], g #mapbox:hover [id$=mascot] {
   -webkit-transform: scale(1, 1);
   -moz-transform: scale(1, 1);
   -ms-transform: scale(1, 1);
@@ -257,7 +304,8 @@ g #emberjs:hover [id$=label], g #bower:hover [id$=label],
   g #broccolijs:hover [id$=label], g #coffeescript:hover [id$=label],
   g #html:hover [id$=label], g #handlebars:hover [id$=label],
   g #bootstrap:hover [id$=label], g #jquery:hover [id$=label],
-  g #booemb:hover [id$=label] {
+  g #booemb:hover [id$=label], g #impressjs:hover [id$=label],
+  g #mapbox:hover [id$=label] {
   -webkit-transform: scale(1) translate(0px, 0px);
   -moz-transform: scale(1) translate(0px, 0px);
   -ms-transform: scale(1) translate(0px, 0px);
@@ -356,7 +404,7 @@ g #html:hover + #handlebars [id$=label] {
   transform-origin: 1260px -630px;
 }
 /* Row 3 */
-/* Hover on CoffeeScript */
+/* Hover on Bootstrap */
 g #bootstrap:hover + #jquery [id$=sticker] {
   -webkit-transform-origin: 155px 1070px;
   -moz-transform-origin: 155px 1070px;
@@ -399,6 +447,22 @@ g #jquery:hover + #booemb [id$=label] {
   -ms-transform-origin: 1160px -525px;
   -o-transform-origin: 1160px -525px;
   transform-origin: 1160px -525px;
+}
+/* Row 4 */
+/* Hover on impress.js */
+g #impressjs:hover + #mapbox [id$=sticker] {
+  -webkit-transform-origin: 155px 1111px;
+  -moz-transform-origin: 155px 1111px;
+  -ms-transform-origin: 155px 1111px;
+  -o-transform-origin: 155px 1111px;
+  transform-origin: 155px 1111px;
+}
+g #impressjs:hover + #mapbox [id$=label] {
+  -webkit-transform-origin: -1310px -475px;
+  -moz-transform-origin: -1310px -475px;
+  -ms-transform-origin: -1310px -475px;
+  -o-transform-origin: -1310px -475px;
+  transform-origin: -1310px -475px;
 }
 /* --- On Animation: Move Bottom Container Slightly Downward --- */
 /* Row 1 */
@@ -459,6 +523,34 @@ g #emberjs:hover + #bower + #broccolijs + #coffeescript + #html + #handlebars + 
  -o-transform-origin: -1950px 300px;
   transform-origin: -1950px 300px;
 }
+g #emberjs:hover + #bower + #broccolijs + #coffeescript + #html + #handlebars + #bootstrap + #jquery + #booemb + #impressjs [id$=sticker] {
+  -webkit-transform-origin: 105px 1175px;
+  -moz-transform-origin: 105px 1175px;
+  -ms-transform-origin: 105px 1175px;
+  -o-transform-origin: 105px 1175px;
+  transform-origin: 105px 1175px;
+}
+g #emberjs:hover + #bower + #broccolijs + #coffeescript + #html + #handlebars + #bootstrap + #jquery + #booemb + #impressjs [id$=label] {
+  -webkit-transform-origin: 90px 400px;
+  -moz-transform-origin: 90px 400px;
+  -ms-transform-origin: 90px 400px;
+  -o-transform-origin: 90px 400px;
+   transform-origin: 90px 400px;
+}
+g #emberjs:hover + #bower + #broccolijs + #coffeescript + #html + #handlebars + #bootstrap + #jquery + #booemb + #impressjs + #mapbox [id$=sticker] {
+ -webkit-transform-origin: 105px 1175px;
+ -moz-transform-origin: 105px 1175px;
+ -ms-transform-origin: 105px 1175px;
+ -o-transform-origin: 105px 1175px;
+ transform-origin: 105px 1175px;
+}
+g #emberjs:hover + #bower + #broccolijs + #coffeescript + #html + #handlebars + #bootstrap + #jquery + #booemb + #impressjs + #mapbox [id$=label] {
+ -webkit-transform-origin: -1950px 400px;
+ -moz-transform-origin: -1950px 400px;
+ -ms-transform-origin: -1950px 400px;
+ -o-transform-origin: -1950px 400px;
+  transform-origin: -1950px 400px;
+}
 /* Hover on Bower */
 g #bower:hover + #broccolijs + #coffeescript + #html [id$=sticker] {
   -webkit-transform-origin: 105px 1080px;
@@ -515,6 +607,20 @@ g #bower:hover + #broccolijs + #coffeescript + #html + #handlebars + #bootstrap 
  -ms-transform-origin: -1400px 300px;
  -o-transform-origin: -1400px 300px;
   transform-origin: -1400px 300px;
+}
+g #bower:hover + #broccolijs + #coffeescript + #html + #handlebars + #bootstrap + #jquery + #booemb + #impressjs + #mapbox [id$=sticker] {
+ -webkit-transform-origin: 105px 1175px;
+ -moz-transform-origin: 105px 1175px;
+ -ms-transform-origin: 105px 1175px;
+ -o-transform-origin: 105px 1175px;
+ transform-origin: 105px 1175px;
+}
+g #bower:hover + #broccolijs + #coffeescript + #html + #handlebars + #bootstrap + #jquery + #booemb + #impressjs + #mapbox [id$=label] {
+ -webkit-transform-origin: -1950px 400px;
+ -moz-transform-origin: -1950px 400px;
+ -ms-transform-origin: -1950px 400px;
+ -o-transform-origin: -1950px 400px;
+  transform-origin: -1950px 400px;
 }
 /* Hover on Broccoli.js */
 g #broccolijs:hover + #coffeescript + #html + #handlebars [id$=sticker] {
@@ -575,6 +681,34 @@ g #coffeescript:hover + #html + #handlebars + #bootstrap + #jquery [id$=label] {
  -o-transform-origin: -1950px 1050px;
   transform-origin: -1950px 1050px;
 }
+g #coffeescript:hover + #html + #handlebars + #bootstrap + #jquery + #booemb + #impressjs [id$=sticker] {
+ -webkit-transform-origin: 105px 1230px;
+ -moz-transform-origin: 105px 1230px;
+ -ms-transform-origin: 105px 1230px;
+ -o-transform-origin: 105px 1230px;
+ transform-origin: 105px 1230px;
+}
+g #coffeescript:hover + #html + #handlebars + #bootstrap + #jquery + #booemb + #impressjs [id$=label] {
+ -webkit-transform-origin: 120px 1050px;
+ -moz-transform-origin: 120px 1150px;
+ -ms-transform-origin: 120px 1150px;
+ -o-transform-origin: 120px 1150px;
+  transform-origin: 120px 1150px;
+}
+g #coffeescript:hover + #html + #handlebars + #bootstrap + #jquery + #booemb + #impressjs + #mapbox [id$=sticker] {
+ -webkit-transform-origin: 105px 1230px;
+ -moz-transform-origin: 105px 1230px;
+ -ms-transform-origin: 105px 1230px;
+ -o-transform-origin: 105px 1230px;
+ transform-origin: 105px 1230px;
+}
+g #coffeescript:hover + #html + #handlebars + #bootstrap + #jquery + #booemb + #impressjs + #mapbox [id$=label] {
+ -webkit-transform-origin: -2000px 1050px;
+ -moz-transform-origin: -2000px 1050px;
+ -ms-transform-origin: -2000px 1050px;
+ -o-transform-origin: -2000px 1050px;
+  transform-origin: -2000px 1150px;
+}
 /* Hover on HTML */
 g #html:hover + #handlebars + #bootstrap + #jquery [id$=sticker] {
  -webkit-transform-origin: 105px 1185px;
@@ -604,6 +738,20 @@ g #html:hover + #handlebars + #bootstrap + #jquery + #booemb [id$=label] {
  -o-transform-origin: -1400px 1050px;
   transform-origin: -1400px 1050px;
 }
+g #html:hover + #handlebars + #bootstrap + #jquery + #booemb + #impressjs + #mapbox [id$=sticker] {
+ -webkit-transform-origin: 105px 1230px;
+ -moz-transform-origin: 105px 1230px;
+ -ms-transform-origin: 105px 1230px;
+ -o-transform-origin: 105px 1230px;
+ transform-origin: 105px 1230px;
+}
+g #html:hover + #handlebars + #bootstrap + #jquery + #booemb + #impressjs + #mapbox [id$=label] {
+ -webkit-transform-origin: -2000px 1050px;
+ -moz-transform-origin: -2000px 1050px;
+ -ms-transform-origin: -2000px 1050px;
+ -o-transform-origin: -2000px 1050px;
+  transform-origin: -2000px 1150px;
+}
 /* Hover on handlebars */
 g #handlebars:hover + #bootstrap + #jquery + #booemb [id$=sticker] {
  -webkit-transform-origin: 195px 1185px;
@@ -618,4 +766,49 @@ g #handlebars:hover + #bootstrap + #jquery + #booemb [id$=label] {
  -ms-transform-origin: -1400px 1050px;
  -o-transform-origin: -1400px 1050px;
   transform-origin: -1400px 1050px;
+}
+/* Row 3 */
+/* Hover on Bootstrap */
+g #bootstrap:hover + #jquery + #booemb + #impressjs [id$=sticker] {
+ -webkit-transform-origin: 105px 1223px;
+ -moz-transform-origin: 105px 1223px;
+ -ms-transform-origin: 105px 1223px;
+ -o-transform-origin: 105px 1223px;
+ transform-origin: 105px 1223px;
+}
+g #bootstrap:hover + #jquery + #booemb + #impressjs [id$=label] {
+ -webkit-transform-origin: 95px 1050px;
+ -moz-transform-origin: 95px 1050px;
+ -ms-transform-origin: 95px 1050px;
+ -o-transform-origin: 95px 1050px;
+  transform-origin: 95px 1050px;
+}
+g #bootstrap:hover + #jquery + #booemb + #impressjs + #mapbox [id$=sticker] {
+ -webkit-transform-origin: 105px 1223px;
+ -moz-transform-origin: 105px 1223px;
+ -ms-transform-origin: 105px 1223px;
+ -o-transform-origin: 105px 1223px;
+ transform-origin: 105px 1223px;
+}
+g #bootstrap:hover + #jquery + #booemb + #impressjs + #mapbox [id$=label] {
+ -webkit-transform-origin: -2000px 1050px;
+ -moz-transform-origin: -2000px 1050px;
+ -ms-transform-origin: -2000px 1050px;
+ -o-transform-origin: -2000px 1050px;
+  transform-origin: -2000px 1050px;
+}
+/* Hover on jQuery */
+g #jquery:hover + #booemb + #impressjs + #mapbox [id$=sticker] {
+ -webkit-transform-origin: 105px 1223px;
+ -moz-transform-origin: 105px 1223px;
+ -ms-transform-origin: 105px 1223px;
+ -o-transform-origin: 105px 1223px;
+ transform-origin: 105px 1223px;
+}
+g #jquery:hover + #booemb + #impressjs + #mapbox [id$=label] {
+ -webkit-transform-origin: -2000px 1050px;
+ -moz-transform-origin: -2000px 1050px;
+ -ms-transform-origin: -2000px 1050px;
+ -o-transform-origin: -2000px 1050px;
+  transform-origin: -2000px 1050px;
 }
