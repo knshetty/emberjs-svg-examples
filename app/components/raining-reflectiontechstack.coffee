@@ -24,6 +24,8 @@ RainingReflectiontechstackComponent = Ember.Component.extend(
                 options:
                   showAngleIndicator: true
                   wireframes: true
+                  height: 400
+                  width: 410
             })
 
     # -- Add a mouse controlled constraint to the world ---
@@ -40,10 +42,14 @@ RainingReflectiontechstackComponent = Ember.Component.extend(
     engine.world.bodies = []
 
     # These static walls will not be rendered in this sprites example, see options
-    ###Bodies.rectangle(400, -offset, 800.5 + 2 * offset, 50.5, options)
-    Bodies.rectangle(400, 600 + offset, 800.5 + 2 * offset, 50.5, options)
-    Bodies.rectangle(800 + offset, 300, 50.5, 600.5 + 2 * offset, options)
-    Bodies.rectangle(-offset, 300, 50.5, 600.5 + 2 * offset, options)###
+    ###
+    World.add(engine.world, [
+      Bodies.rectangle(400, -offset, 800.5 + 2 * offset, 50.5, options)
+      Bodies.rectangle(400, 600 + offset, 800.5 + 2 * offset, 50.5, options)
+      Bodies.rectangle(800 + offset, 300, 50.5, 600.5 + 2 * offset, options)
+      Bodies.rectangle(-offset, 300, 50.5, 600.5 + 2 * offset, options)
+    ])
+    ###
     World.add(engine.world, [
         Bodies.rectangle(115, -offset, 215.5 + 2 * offset, 10.5, options)
         Bodies.rectangle(115, 260 + offset, 215.5 + 2 * offset, 10.5, options)
