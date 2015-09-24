@@ -9,6 +9,7 @@ Router.map ->
     @route 'infographic'
     @route 'worldpopulation'
     @route 'techstack'
+    @route 'matterjstechstack'
   @resource 'svgjs', ->
     @route 'rectangle'
     @route 'clock'

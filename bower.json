@@ -16,6 +16,7 @@
     "bootstrap": "~3.3.2",
     "svg.js": "~1.0.1",
     "ember-addons.bs_for_ember": "~0.7.0",
-    "snap.svg": "~0.3.0"
+    "snap.svg": "~0.3.0",
+    "matter-js": "~0.8.0-alpha"
   }
 }
