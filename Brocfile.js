@@ -104,7 +104,8 @@ var matterjsAssests = pickFiles('app/svgs', {
           'jquery-logo.svg',
           'impress-js-logo.svg',
           'mapbox-logo.svg',
-          'matter-js-logo.svg'],
+          'matter-js-logo.svg',
+          'snapsvg-logo.svg'],
   destDir: '/assets'
 });
 

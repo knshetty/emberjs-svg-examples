@@ -58,7 +58,7 @@ RainingReflectiontechstackComponent = Ember.Component.extend(
     ])
 
     counter = 1
-    stack = Composites.stack(40, 20, 3, 4, 0, 0, (x, y) ->
+    stack = Composites.stack(40, 20, 3, 5, 0, 0, (x, y) ->
               if counter == 1
                 counter += 1
                 Bodies.rectangle(x, y, 42, 44, {
@@ -194,6 +194,16 @@ RainingReflectiontechstackComponent = Ember.Component.extend(
                       url: 'http://brm.io/matter-js/'
                       xScale: 0.15
                       yScale: 0.15
+                })
+              else if counter == 13
+                counter += 1
+                Bodies.rectangle(x, y, 20, 31, {
+                  render:
+                    sprite:
+                      texture: 'assets/snapsvg-logo.svg'
+                      url: 'http://snapsvg.io/'
+                      xScale: 0.13
+                      yScale: 0.13
                 })
           )
 
