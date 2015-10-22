@@ -16,5 +16,6 @@ Router.map ->
   @resource 'snapsvg', ->
     @route 'clock'
     @route 'menu'
+    @route 'clock-aaron-nieze'
 
 `export default Router`

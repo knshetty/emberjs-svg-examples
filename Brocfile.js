@@ -83,7 +83,8 @@ app.import('app/styles/reflection-technology-stack-svg.css');
 var svgAssests = pickFiles('app/svgs', {
   srcDir: '/',
   files: ['intraday-designer-infographic.svg',
-          'reflection-technology-stack.svg'],
+          'reflection-technology-stack.svg',
+	  'clock-aaron-nieze.svg'],
   destDir: '/assets'
 });
 

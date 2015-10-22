@@ -24,6 +24,11 @@ html, body {
   height: 600px;
 }
 
+#snapsvg-clock-aaron-nieze-wrapper {
+  width: 400px;
+  height: 400px;
+}
+
 /* Menu Button */
 .menu-button {
 	position: fixed;
