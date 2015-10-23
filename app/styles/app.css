@@ -29,6 +29,11 @@ html, body {
   height: 400px;
 }
 
+#snapsvg-neonlight-anim-wrapper {
+  width: 400px;
+  height: 400px;
+}
+
 /* Menu Button */
 .menu-button {
 	position: fixed;

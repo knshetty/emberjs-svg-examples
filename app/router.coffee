@@ -17,5 +17,6 @@ Router.map ->
     @route 'clock'
     @route 'menu'
     @route 'clock-aaron-nieze'
+    @route 'neonlight'
 
 `export default Router`
