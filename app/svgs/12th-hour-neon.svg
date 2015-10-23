@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="99.369341"
-     inkscape:cy="164.55023"
+     inkscape:zoom="2.1702889"
+     inkscape:cx="177.16535"
+     inkscape:cy="177.16535"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -44,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -71,14 +71,14 @@
            style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Likhan;-inkscape-font-specification:'Likhan Medium'">12</tspan></text>
     </g>
     <ellipse
-       style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#dd2a2b;stroke-width:9.82930851;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#3399ff;stroke-width:9.82930851;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
        id="inner-ring"
        cx="178.98653"
        cy="872.37292"
        rx="114.87235"
        ry="112.28681" />
     <ellipse
-       style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#dd2a2b;stroke-width:4.9;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#3399ff;stroke-width:4.9;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="outer-ring"
        cx="178.40553"
        cy="872.36218"

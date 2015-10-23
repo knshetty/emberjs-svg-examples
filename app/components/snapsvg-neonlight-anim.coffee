@@ -1,15 +1,16 @@
 `import Ember from 'ember'`
 
-SnapsvgNeonlightAnimComponent = Ember.Component.extend(
+SnapsvgNeonlightAnimComponent = Ember.Component.extend (
 
   didInsertElement: ->
+
     # Create snap.svg context
     @snapsvgInit()
 
     # 12th Hour - Neon Light
     s = @get('draw')
 	
-    context = @    
+    context = @
     Snap.load("assets/12th-hour-neon.svg", (f) ->
       hour = f.select("#hour")
       iRing = f.select("#inner-ring")
@@ -24,34 +25,32 @@ SnapsvgNeonlightAnimComponent = Ember.Component.extend(
 
   animateNeonLight: (hour, iRing, oRing) ->
     # --- Show only the 12th-hour ---
-    hour.attr({fill: "#000000"})
+    hour.attr({fill: '#000000'})
 
     # --- Hide inner & outer rings ---
-    oRing.attr({opacity: 0}) #Default: 1
+    oRing.attr({opacity: 1}) #Default: 1
     iRing.attr({opacity: 0}) #Default: 1
 
     context = @
 
-    # --- Flash the rings & 12th-hour in cascading-order ---
-    context.flash(1000, oRing)
+    # --- Flash the inner-ring ---
+    context.changeColour_Stroke(2000, '#3399ff', iRing)
     context.flash(2000, iRing)
-    context.changeColour(3000, "#dd2a2b", hour)
 
-    # --- Repeat this entire routine every 4 seconds ---
+    # --- Repeat this entire routine every 5 seconds ---
     setTimeout ( ->
     	context.animateNeonLight(hour, iRing, oRing)
-    ), 4000
+    ), 5000
 
   flash: (time, item) ->
     setTimeout ( ->
     	item.attr({opacity: 1})
     ), time
 
-  changeColour: (time, colour, item) ->
+  changeColour_Stroke: (time, colour, item) ->
     setTimeout ( ->
-    	item.attr({fill: colour})
+        item.attr({stroke: colour})
     ), time
-
 )
 
 `export default SnapsvgNeonlightAnimComponent`
