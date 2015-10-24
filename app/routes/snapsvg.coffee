@@ -3,7 +3,7 @@
 SnapsvgRoute = Ember.Route.extend(
   afterModel: ->
     #@.transitionTo('snapsvg.clock')
-    @.transitionTo('snapsvg.neonlight')
+    @.transitionTo('snapsvg.clock-n-weather')
 )
 
 `export default SnapsvgRoute`

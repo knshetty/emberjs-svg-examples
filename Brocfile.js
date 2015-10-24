@@ -84,8 +84,9 @@ var svgAssests = pickFiles('app/svgs', {
   srcDir: '/',
   files: ['intraday-designer-infographic.svg',
           'reflection-technology-stack.svg',
-	  'clock-aaron-nieze.svg',
-	  '12th-hour-neon.svg'],
+          'clock-aaron-nieze.svg',
+          '12th-hour-neon.svg',
+          'clock-n-weather.svg',],
   destDir: '/assets'
 });
 

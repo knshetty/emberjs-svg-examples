@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-SnapsvgClockAaronNiezeComponent = Ember.Component.extend(
+SnapsvgClockAaronNiezeComponent = Ember.Component.extend (
 
   didInsertElement: ->
     # Create snap.svg context

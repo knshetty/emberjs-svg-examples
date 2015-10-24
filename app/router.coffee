@@ -18,5 +18,6 @@ Router.map ->
     @route 'menu'
     @route 'clock-aaron-nieze'
     @route 'neonlight'
+    @route 'clock-n-weather'
 
 `export default Router`
