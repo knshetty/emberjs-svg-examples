@@ -2,7 +2,40 @@
 
 SnapsvgClockNWeatherComponent = Ember.Component.extend (
 
+  weatherdata = {}
+
+  _temperatureSortedByHour = []
+
+  _sortTemperatureByHour: (localtime, temperature) ->
+      # --- Get the hour timestamp ---
+      # Note! Timestamp string formate >> "20151025T020000"
+      if localtime.search('T') != -1
+          dateParts = localtime.split('T')
+          hour = dateParts[1].substring(0,2)
+      # Note! Timestamp string formate >> "201510242150"
+      else
+          hour = localtime.substring(8,10)
+
+      # --- Index the temperature ---
+      if hour is '00' # 12-'O'-clock
+          _temperatureSortedByHour[11] = temperature
+      else if hour > 12
+          _temperatureSortedByHour[(hour-12)-1] = temperature
+      else
+          _temperatureSortedByHour[hour-1] = temperature
+
   didInsertElement: ->
+    # Get controller
+    theController = @get('_parentView.controller')
+
+    # Get weather data
+    @weatherdata = theController.get('model')
+
+    # --- Sort forecasted temperature by the hour ---
+    for f in @weatherdata.forecast
+        @_sortTemperatureByHour(f.localtime, f.temperature)
+    @_sortTemperatureByHour(@weatherdata.current.observationallocaltime, @weatherdata.current.temperature)
+
     # Create snap.svg context
     @snapsvgInit()
 
@@ -72,17 +105,22 @@ SnapsvgClockNWeatherComponent = Ember.Component.extend (
     ), 1000
 
     if seconds == 0
-        @updateTemperature(temperatureTextObjs)
+        @_updateTemperature(temperatureTextObjs)
 
-  updateTemperature: (temperatureTextObjs) ->
+  _updateTemperature: (temperatureTextObjs) ->
+      for t, index in _temperatureSortedByHour
+          tmp_text = temperatureTextObjs[index]
+          tmp_text.selectAll('tspan')[0].node.textContent = t
+
+  _updateDummyTemperature: (temperatureTextObjs) ->
     forcast_temperature = []
     for i in [1..12]
-        forcast_temperature.push(@getRandomNumInRange(-15,15))
+        forcast_temperature.push(@_getRandomNumInRange(-15,15))
     for t, index in forcast_temperature
         tmp_text = temperatureTextObjs[index]
         tmp_text.selectAll('tspan')[0].node.textContent = t
 
-  getRandomNumInRange: (min,max) ->
+  _getRandomNumInRange: (min,max) ->
     length = (max-min) + 1
     rValue = Math.floor(Math.random()*length)
     min + rValue
