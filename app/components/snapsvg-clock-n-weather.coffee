@@ -70,6 +70,8 @@ SnapsvgClockNWeatherComponent = Ember.Component.extend (
     minutes = timeNow.getMinutes()
     seconds = timeNow.getSeconds()
 
+    console.log hours
+
     # --- Positioning of Clock's objects ---
     clockCenterPosition = ',250,250'
     futureRingCenterPosition = ',200,200'
@@ -90,14 +92,14 @@ SnapsvgClockNWeatherComponent = Ember.Component.extend (
 
     # --- Hour-Needle Animation ---
     # Move the hour-needle when the minutes change
-    hourNeedle.transform('r' + ((hours*27.4)+(minutes/2)) + clockCenterPosition)
+    hourNeedle.transform('r' + ((hours*30)+(minutes/2)) + clockCenterPosition)
 
     # --- Future-Ring Animation ---
     offset_FutureRing = 20
-    futureRing.transform('r' + ((hours*27.4) - offset_FutureRing + (minutes/2)) + futureRingCenterPosition)
+    futureRing.transform('r' + ((hours*30) - offset_FutureRing + (minutes/2)) + futureRingCenterPosition)
 
     # --- Update all Temperatures ---
-    if seconds == 0
+    if seconds == 1
         #@_updateAllMockTemperatures(temperatureTextObjs)
         @_updateAllTemperatures(temperatureTextObjs)
 

@@ -28,13 +28,14 @@
      inkscape:window-height="1000"
      id="namedview58"
      showgrid="false"
-     inkscape:zoom="1.416"
-     inkscape:cx="273.02677"
-     inkscape:cy="263.19554"
+     inkscape:zoom="2"
+     inkscape:cx="278.15841"
+     inkscape:cy="238.70937"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="text8280-1-8-67-0-1-8-74-1" />
+     inkscape:current-layer="g4201"
+     showguides="false" />
   <defs
      id="defs4">
     <marker
@@ -422,9 +423,9 @@
        sodipodi:cy="199.99988"
        sodipodi:rx="198.40677"
        sodipodi:ry="198.1107"
-       sodipodi:start="5.2027638"
-       sodipodi:end="4.7439032"
-       d="M 293.73702,25.235254 A 198.40677,198.1107 0 0 1 384.86708,272.68398 198.40677,198.1107 0 0 1 149.10845,391.40389 198.40677,198.1107 0 0 1 4.0067738,171.13341 198.40677,198.1107 0 0 1 206.54765,1.9875437"
+       sodipodi:start="5.0307501"
+       sodipodi:end="4.4932102"
+       d="M 262.39944,11.844302 A 198.40677,198.1107 0 0 1 395.35452,236.24226 198.40677,198.1107 0 0 1 190.46086,397.86703 198.40677,198.1107 0 0 1 2.6021262,216.77832 198.40677,198.1107 0 0 1 157.15684,6.6287096"
        sodipodi:open="true" />
   </g>
   <ellipse
@@ -537,13 +538,13 @@
     <text
        sodipodi:linespacing="125%"
        id="tmp_3"
-       y="416.18198"
-       x="251.90045"
+       y="417.57275"
+       x="251.87132"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:26.25px;font-family:Likhan;-inkscape-font-specification:'Likhan Medium';text-align:start;text-anchor:start;fill:#828282"
-         y="416.18198"
-         x="251.90045"
+         y="417.57275"
+         x="251.87132"
          id="tspan4331"
          sodipodi:role="line">0</tspan></text>
     <text
