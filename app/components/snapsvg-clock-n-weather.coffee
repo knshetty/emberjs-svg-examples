@@ -2,46 +2,35 @@
 
 SnapsvgClockNWeatherComponent = Ember.Component.extend (
 
-  weatherdata = {}
+  # ----------------
+  # Declare: Globals
+  # ----------------
+  _weatherdata = {}
 
-  _temperatureSortedByHour = []
-
-  _sortTemperatureByHour: (localtime, temperature) ->
-      # --- Get the hour timestamp ---
-      # Note! Timestamp string formate >> "20151025T020000"
-      if localtime.search('T') != -1
-          dateParts = localtime.split('T')
-          hour = dateParts[1].substring(0,2)
-      # Note! Timestamp string formate >> "201510242150"
-      else
-          hour = localtime.substring(8,10)
-
-      # --- Index the temperature ---
-      if hour is '00' # 12-'O'-clock
-          _temperatureSortedByHour[11] = temperature
-      else if hour > 12
-          _temperatureSortedByHour[(hour-12)-1] = temperature
-      else
-          _temperatureSortedByHour[hour-1] = temperature
+  _temperatures_OrderedByAscendingHours = []
 
   didInsertElement: ->
+
     # Get controller
     theController = @get('_parentView.controller')
 
     # Get weather data
-    @weatherdata = theController.get('model')
+    @_weatherdata = theController.get('model')
 
-    # --- Sort forecasted temperature by the hour ---
-    for f in @weatherdata.forecast
-        @_sortTemperatureByHour(f.localtime, f.temperature)
-    @_sortTemperatureByHour(@weatherdata.current.observationallocaltime, @weatherdata.current.temperature)
+    # --- Arrange forecasted temperatures in ascending hourly order ---
+    # Sort future temperatures
+    for f in @_weatherdata.forecast
+        @_insertTemperature_InAscendingHourlyOrder(f.localtime, f.temperature)
+    # Sort current temperature
+    @_insertTemperature_InAscendingHourlyOrder(@_weatherdata.current.observationallocaltime, @_weatherdata.current.temperature)
 
     # Create snap.svg context
-    @snapsvgInit()
+    @_snapsvgInit()
 
-    # Clock
+    # Get handle to Clock svg
     s = @get('draw')
 
+    # Manipulate Clock svg objects
     context = @
     Snap.load("assets/clock-n-weather.svg", (f) ->
 
@@ -51,29 +40,34 @@ SnapsvgClockNWeatherComponent = Ember.Component.extend (
       hourNeedle = f.select("#hour")
 
       # --- Get Temperature Objects ----
-      seperatorNowFuture = f.select("#seperator-now-n-future")
+      futureRing = f.select("#seperator-now-n-future")
       temperatureTextObjs = []
       for i in [1..12]
         temperatureTextObjs.push(f.select("#tmp_#{i}"))
 
-      # Fire clock's animation
-      context.animateTime(secondNeedle, minuteNeedle, hourNeedle, seperatorNowFuture, temperatureTextObjs)
+      # Fire Clock's animation
+      context._animateTime(secondNeedle, minuteNeedle, hourNeedle, futureRing, temperatureTextObjs)
 
       s.append(f)
     )
 
-  snapsvgInit: ->
+  # ------------------------
+  # Declare: Local Functions
+  # ------------------------
+  _snapsvgInit: ->
+
     draw = Snap('#snapsvg-clock-n-weather-wrapper')
     @set('draw', draw)
 
-  animateTime: (secondNeedle, minuteNeedle, hourNeedle, seperatorNowFuture, temperatureTextObjs) ->
+  _animateTime: (secondNeedle, minuteNeedle, hourNeedle, futureRing, temperatureTextObjs) ->
+
     # --- Get the current time ---
     timeNow = new Date()
     hours   = timeNow.getHours()
     minutes = timeNow.getMinutes()
     seconds = timeNow.getSeconds()
 
-    # Clocks center
+    # Clocks centeranimateTime
     clockCenterPosition = ',250,250'
 
     # --- Second-Needle Animation ---
@@ -94,36 +88,60 @@ SnapsvgClockNWeatherComponent = Ember.Component.extend (
     # Move the hour-needle when the minutes change
     hourNeedle.transform('r' + ((hours*27.4)+(minutes/2)) + clockCenterPosition)
 
-    # --- Seperator-now-n-future Animation ---
-    offset_Seperator = 20
-    seperatorNowFuture.transform('r' + ((hours*27.4) - offset_Seperator + (minutes/2)) + ',200,200')
+    # --- Future-Ring Animation ---
+    offset_FutureRing = 20
+    futureRing.transform('r' + ((hours*27.4) - offset_FutureRing + (minutes/2)) + ',200,200')
+
+    # --- Update all Temperatures ---
+    if seconds == 0
+        #@_updateAllMockTemperatures(temperatureTextObjs)
+        @_updateAllTemperatures(temperatureTextObjs)
 
     # --- Repeat this entire routine every second ---
     context = @
     setTimeout ( ->
-        context.animateTime(secondNeedle, minuteNeedle, hourNeedle, seperatorNowFuture, temperatureTextObjs)
+        context._animateTime(secondNeedle, minuteNeedle, hourNeedle, futureRing, temperatureTextObjs)
     ), 1000
 
-    if seconds == 0
-        @_updateTemperature(temperatureTextObjs)
+  _insertTemperature_InAscendingHourlyOrder: (localtime, temperature) ->
 
-  _updateTemperature: (temperatureTextObjs) ->
-      for t, index in _temperatureSortedByHour
-          tmp_text = temperatureTextObjs[index]
-          tmp_text.selectAll('tspan')[0].node.textContent = t
+      # --- Get hour from the timestamp ---
+      if localtime.search('T') != -1 # Handle Timestamp with following format: "20151025T020000"
+          timestampParts = localtime.split('T')
+          hour = timestampParts[1].substring(0,2)
+      else # Handle Timestamp with following format: "201510242150"
+          hour = localtime.substring(8,10)
 
-  _updateDummyTemperature: (temperatureTextObjs) ->
+      # --- Sort temperatures by ascending hourly order ---
+      if hour is '00' or hour is 12
+          _temperatures_OrderedByAscendingHours[11] = temperature
+      else if hour > 12
+          _temperatures_OrderedByAscendingHours[(hour-12)-1] = temperature
+      else
+          _temperatures_OrderedByAscendingHours[hour-1] = temperature
+
+  _updateAllTemperatures: (temperatureTextObjs) ->
+
+      for t, index in _temperatures_OrderedByAscendingHours
+          @_setTextObj(temperatureTextObjs[index], t)
+
+  _updateAllMockTemperatures: (temperatureTextObjs) ->
+
     forcast_temperature = []
     for i in [1..12]
         forcast_temperature.push(@_getRandomNumInRange(-15,15))
     for t, index in forcast_temperature
-        tmp_text = temperatureTextObjs[index]
-        tmp_text.selectAll('tspan')[0].node.textContent = t
+        @_setTextObj(temperatureTextObjs[index], t)
 
   _getRandomNumInRange: (min,max) ->
+
     length = (max-min) + 1
     rValue = Math.floor(Math.random()*length)
     min + rValue
+
+  _setTextObj: (temperatureTextObj, text) ->
+
+    temperatureTextObj.selectAll('tspan')[0].node.textContent = text
 
 )
 
