@@ -98,7 +98,7 @@ SnapsvgClockNWeatherComponent = Ember.Component.extend (
     futureRing.transform('r' + ((hours*30) - offset_FutureRing + (minutes/2)) + futureRingCenterPosition)
 
     # --- Update all Temperatures ---
-    if minutes == 3 and seconds == 0
+    if (minutes == 3 and seconds == 0) or (minutes == 33 and seconds == 0)
         @_theController.send('updateModel')
     ###
     if seconds == 1
