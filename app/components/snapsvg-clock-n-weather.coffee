@@ -5,9 +5,13 @@ SnapsvgClockNWeatherComponent = Ember.Component.extend (
   # ----------------
   # Declare: Globals
   # ----------------
-  _weatherdata = {}
+  _theController: null
 
-  _temperatures_OrderedByAscendingHours = []
+  _weatherdata: null
+
+  _temperatures_OrderedByAscendingHours: []
+
+  _alltemperatureText_SvgObjs: null
 
   # -------------------------------------
   # Declare: Component Specific Functions
@@ -15,17 +19,10 @@ SnapsvgClockNWeatherComponent = Ember.Component.extend (
   didInsertElement: ->
 
     # Get controller
-    theController = @get('_parentView.controller')
+    @set('_theController', @get('_parentView.controller'))
 
-    # Get weather data
-    @_weatherdata = theController.get('model')
-
-    # --- Arrange forecasted temperatures in ascending hourly order ---
-    # Sort future temperatures
-    for f in @_weatherdata.forecast
-        @_insertTemperature_InAscendingHourlyOrder(f.localtime, f.temperature)
-    # Sort current temperature
-    @_insertTemperature_InAscendingHourlyOrder(@_weatherdata.current.observationallocaltime, @_weatherdata.current.temperature)
+    # Extract & Tranform weather data
+    @_extractAndTranform_WeatherData()
 
     # Create snap.svg context
     @_snapsvgInit()
@@ -37,19 +34,23 @@ SnapsvgClockNWeatherComponent = Ember.Component.extend (
     context = @
     Snap.load("assets/clock-n-weather.svg", (f) ->
 
-      # --- Get Clock Objects ----
+      # --- Get Clock svg objects ----
       secondNeedle = f.select("#second")
       minuteNeedle = f.select("#minute")
       hourNeedle = f.select("#hour")
 
-      # --- Get Temperature Objects ----
+      # --- Get all temperature-text svg objects ----
       futureRing = f.select("#seperator-now-n-future")
       temperatureTextObjs = []
       for i in [1..12]
         temperatureTextObjs.push(f.select("#tmp_#{i}"))
+      context.set('_alltemperatureText_SvgObjs', temperatureTextObjs)
 
-      # Fire Clock's animation
-      context._animateTime(secondNeedle, minuteNeedle, hourNeedle, futureRing, temperatureTextObjs)
+      # Update all temperatures
+      context._updateAllTemperatures()
+
+      # Start Clock animation
+      context._animateTime(secondNeedle, minuteNeedle, hourNeedle, futureRing)
 
       s.append(f)
     )
@@ -62,15 +63,13 @@ SnapsvgClockNWeatherComponent = Ember.Component.extend (
     draw = Snap('#snapsvg-clock-n-weather-wrapper')
     @set('draw', draw)
 
-  _animateTime: (secondNeedle, minuteNeedle, hourNeedle, futureRing, temperatureTextObjs) ->
+  _animateTime: (secondNeedle, minuteNeedle, hourNeedle, futureRing) ->
 
     # --- Get the current time ---
     timeNow = new Date()
     hours   = timeNow.getHours()
     minutes = timeNow.getMinutes()
     seconds = timeNow.getSeconds()
-
-    console.log hours
 
     # --- Positioning of Clock's objects ---
     clockCenterPosition = ',250,250'
@@ -99,15 +98,30 @@ SnapsvgClockNWeatherComponent = Ember.Component.extend (
     futureRing.transform('r' + ((hours*30) - offset_FutureRing + (minutes/2)) + futureRingCenterPosition)
 
     # --- Update all Temperatures ---
+    if minutes == 3 and seconds == 0
+        @_theController.send('updateModel')
+    ###
     if seconds == 1
-        #@_updateAllMockTemperatures(temperatureTextObjs)
-        @_updateAllTemperatures(temperatureTextObjs)
+        #@_updateAllMockTemperatures()
+    ###
 
     # --- Repeat this entire routine every second ---
     context = @
     setTimeout ( ->
-        context._animateTime(secondNeedle, minuteNeedle, hourNeedle, futureRing, temperatureTextObjs)
+        context._animateTime(secondNeedle, minuteNeedle, hourNeedle, futureRing)
     ), 1000
+
+  _extractAndTranform_WeatherData: ->
+
+    # Extract: Get weather data
+    @set('_weatherdata', @_theController.get('model'))
+
+    # --- Transform: Arrange forecasted temperatures in ascending hourly order ---
+    # Sort future temperatures
+    for f in @_weatherdata.forecast
+        @_insertTemperature_InAscendingHourlyOrder(f.localtime, f.temperature)
+    # Sort current temperature
+    @_insertTemperature_InAscendingHourlyOrder(@_weatherdata.current.observationallocaltime, @_weatherdata.current.temperature)
 
   _insertTemperature_InAscendingHourlyOrder: (localtime, temperature) ->
 
@@ -120,24 +134,23 @@ SnapsvgClockNWeatherComponent = Ember.Component.extend (
 
       # --- Sort temperatures by ascending hourly order ---
       if hour is '00' or hour is 12
-          _temperatures_OrderedByAscendingHours[11] = temperature
+          @_temperatures_OrderedByAscendingHours[11] = temperature
       else if hour > 12
-          _temperatures_OrderedByAscendingHours[(hour-12)-1] = temperature
+          @_temperatures_OrderedByAscendingHours[(hour-12)-1] = temperature
       else
-          _temperatures_OrderedByAscendingHours[hour-1] = temperature
+          @_temperatures_OrderedByAscendingHours[hour-1] = temperature
 
-  _updateAllTemperatures: (temperatureTextObjs) ->
+  _updateAllTemperatures: ->
+      for t, index in @_temperatures_OrderedByAscendingHours
+          @_setTextObj(@_alltemperatureText_SvgObjs[index], t)
 
-      for t, index in _temperatures_OrderedByAscendingHours
-          @_setTextObj(temperatureTextObjs[index], t)
-
-  _updateAllMockTemperatures: (temperatureTextObjs) ->
+  _updateAllMockTemperatures: ->
 
     forcast_temperature = []
     for i in [1..12]
         forcast_temperature.push(@_getRandomNumInRange(-15,15))
     for t, index in forcast_temperature
-        @_setTextObj(temperatureTextObjs[index], t)
+        @_setTextObj(@_alltemperatureText_SvgObjs[index], t)
 
   _getRandomNumInRange: (min,max) ->
 
@@ -149,6 +162,14 @@ SnapsvgClockNWeatherComponent = Ember.Component.extend (
 
     temperatureTextObj.selectAll('tspan')[0].node.textContent = text
 
+  # -------------------------
+  # --- Declare Observers ---
+  # -------------------------
+  weatherdataChanged: ( ->
+    @_extractAndTranform_WeatherData()
+    if @_alltemperatureText_SvgObjs
+        @_updateAllTemperatures()
+  ).observes('_theController.model')
 )
 
 `export default SnapsvgClockNWeatherComponent`

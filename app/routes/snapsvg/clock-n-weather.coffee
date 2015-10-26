@@ -5393,79 +5393,106 @@ requestFMIWeatherData_mockupRESTCall_Async = (locationId) ->
                             }
                         }
                     }))
-                    resolve(weatherData)
+                    resolve(weatherData[0])
                 ), 0)
         )
 
 SnapsvgClockNWeatherRoute = Ember.Route.extend (
 
     model: ->
+        # Weather data aquisition procedure/configuration
+        # If True >> Simulation
+        # If False >> RESTful Resource
+        simulationMode = false
+
+        # City of interest >> Tampere >> 634963
         tampere_LocationId = 634963
-        requestFMIWeatherData_mockupRESTCall_Async(tampere_LocationId).then( (data) ->
-            weatherdata = {}
-            currentWeatherStationObservationInfo = {}
-            forecastHourly_Max11HoursInfo = []
-            sunInfo = {}
 
-            # ---------------------------------
-            # Weather Station Observation Info
-            # ---------------------------------
-            # --- Get current weather station observation info ---
-            # Weather station of interest >> Härmälä, Tampere, Finland
-            # Note! fmisid:101124 >> Refers to Härmälä weather station
-            tampere_AllWeatherStations = data[0].get('observations.634963')
-            harmala_Tampere_WeatherStation_CurrentObservation = {}
-            for weatherstation in tampere_AllWeatherStations
-                if weatherstation.fmisid is "101124"
-                    harmala_Tampere_WeatherStation_CurrentObservation = weatherstation
+        # Weather station of interest >> Härmälä, Tampere, Finland >> fmisid:'101124'
+        weatherStationId = '101124'
 
-            # --- Extract relevant current observational info ---
-            if Object.keys(harmala_Tampere_WeatherStation_CurrentObservation).length > 0
-                currentWeatherStationObservationInfo.geoid = "#{tampere_LocationId}"
-                currentWeatherStationObservationInfo.stationname = harmala_Tampere_WeatherStation_CurrentObservation.stationname
-                currentWeatherStationObservationInfo.city = harmala_Tampere_WeatherStation_CurrentObservation.region
-                currentWeatherStationObservationInfo.region = 'Pirkanmaa'
-                currentWeatherStationObservationInfo.country = 'Finland'
-                currentWeatherStationObservationInfo.observationallocaltime = harmala_Tampere_WeatherStation_CurrentObservation.time
-                currentWeatherStationObservationInfo.temperature = harmala_Tampere_WeatherStation_CurrentObservation.Temperature
-                currentWeatherStationObservationInfo.temperatureunit = 'Celsius'
-                currentWeatherStationObservationInfo.humidity = harmala_Tampere_WeatherStation_CurrentObservation.Humidity
-                currentWeatherStationObservationInfo.pressure = harmala_Tampere_WeatherStation_CurrentObservation.Pressure
-                weatherdata.current = currentWeatherStationObservationInfo
+        context = @
+        if simulationMode
+            requestFMIWeatherData_mockupRESTCall_Async(tampere_LocationId).then( (data) ->
+                context.transformWeatherData(data, tampere_LocationId, weatherStationId)
+            )
+        else
+            # Note! The below full url of FMI weather data RESTful API:
+            # http://m.fmi.fi/mobile/interfaces/weatherdata.php?locations=634963&l=en&version=1.1.13&preventcache=1444790055911
+            url = "http://m.fmi.fi/mobile/interfaces/weatherdata.php?locations=#{tampere_LocationId}&callback=?"
+            Ember.$.getJSON(url).then( (data) ->
+                console.log '---- Obtained data from RESTful resource >> m.fmi.fi ----'
+                context.transformWeatherData(data, tampere_LocationId, weatherStationId)
+            )
 
-            # -----------------------------
-            # Hourly Weather Forecast Info
-            # -----------------------------
-            # --- Get hourly weather forcast info, max 11 hours in the future ---
-            tampere_HourlyWeatherForecasts_Max11Hours = data[0].get('forecasts')[0].forecast[0..10]
-            for forecast in tampere_HourlyWeatherForecasts_Max11Hours
-                forecastOnTheHour = {}
-                forecastOnTheHour.geoid = forecast.geoid
-                forecastOnTheHour.city = forecast.name
-                forecastOnTheHour.region = 'Pirkanmaa'
-                forecastOnTheHour.country = 'Finland'
-                forecastOnTheHour.utctime = forecast.utctime
-                forecastOnTheHour.localtime = forecast.localtime
-                forecastOnTheHour.temperature = forecast.Temperature
-                forecastOnTheHour.temperatureunit = 'Celsius'
-                forecastHourly_Max11HoursInfo.pushObject(forecastOnTheHour)
-                weatherdata.forecast = forecastHourly_Max11HoursInfo
+    transformWeatherData: (data, locationId, weatherStationId) ->
 
-            # ---------
-            # Sun Info
-            # ---------
-            # --- Get sun info i.e. sunrise/sunset ---
-            tampere_SunInfo = data[0].get('suninfo.634963')
-            if Object.keys(tampere_SunInfo).length > 0
-                sunInfo.sunrise = { localtime : tampere_SunInfo.sunrise }
-                sunInfo.sunset = { localtime : tampere_SunInfo.sunset }
-                weatherdata.sun = sunInfo
+        weatherdata = {}
+        currentWeatherStationObservationInfo = {}
+        forecastHourly_Max11HoursInfo = []
+        sunInfo = {}
 
-            return weatherdata
-        )
+        # ---------------------------------
+        # Weather Station Observation Info
+        # ---------------------------------
+        # --- Get current weather station observation info ---
+        # For example >> fmisid:101124 >> Refers to Härmälä weather station
+        tampere_AllWeatherStations = data['observations']["#{locationId}"]
+        harmala_Tampere_WeatherStation_CurrentObservation = {}
+        for weatherstation in tampere_AllWeatherStations
+            if weatherstation.fmisid is weatherStationId
+                harmala_Tampere_WeatherStation_CurrentObservation = weatherstation
+
+        # --- Extract relevant current observational info ---
+        if Object.keys(harmala_Tampere_WeatherStation_CurrentObservation).length > 0
+            currentWeatherStationObservationInfo.geoid = "#{locationId}"
+            currentWeatherStationObservationInfo.stationname = harmala_Tampere_WeatherStation_CurrentObservation.stationname
+            currentWeatherStationObservationInfo.city = harmala_Tampere_WeatherStation_CurrentObservation.region
+            currentWeatherStationObservationInfo.region = 'Pirkanmaa'
+            currentWeatherStationObservationInfo.country = 'Finland'
+            currentWeatherStationObservationInfo.observationallocaltime = harmala_Tampere_WeatherStation_CurrentObservation.time
+            currentWeatherStationObservationInfo.temperature = harmala_Tampere_WeatherStation_CurrentObservation.Temperature
+            currentWeatherStationObservationInfo.temperatureunit = 'Celsius'
+            currentWeatherStationObservationInfo.humidity = harmala_Tampere_WeatherStation_CurrentObservation.Humidity
+            currentWeatherStationObservationInfo.pressure = harmala_Tampere_WeatherStation_CurrentObservation.Pressure
+            weatherdata.current = currentWeatherStationObservationInfo
+
+        # -----------------------------
+        # Hourly Weather Forecast Info
+        # -----------------------------
+        # --- Get hourly weather forcast info, max 11 hours in the future ---
+        tampere_HourlyWeatherForecasts_Max11Hours = data.forecasts[0].forecast[0..10]
+        for forecast in tampere_HourlyWeatherForecasts_Max11Hours
+            forecastOnTheHour = {}
+            forecastOnTheHour.geoid = forecast.geoid
+            forecastOnTheHour.city = forecast.name
+            forecastOnTheHour.region = 'Pirkanmaa'
+            forecastOnTheHour.country = 'Finland'
+            forecastOnTheHour.utctime = forecast.utctime
+            forecastOnTheHour.localtime = forecast.localtime
+            forecastOnTheHour.temperature = forecast.Temperature
+            forecastOnTheHour.temperatureunit = 'Celsius'
+            forecastHourly_Max11HoursInfo.pushObject(forecastOnTheHour)
+            weatherdata.forecast = forecastHourly_Max11HoursInfo
+
+        # ---------
+        # Sun Info
+        # ---------
+        # --- Get sun info i.e. sunrise/sunset ---
+        tampere_SunInfo = data['suninfo']["#{locationId}"]
+        if Object.keys(tampere_SunInfo).length > 0
+            sunInfo.sunrise = { localtime : tampere_SunInfo.sunrise }
+            sunInfo.sunset = { localtime : tampere_SunInfo.sunset }
+            weatherdata.sun = sunInfo
+
+        return weatherdata
 
     setupController: (controller, model) ->
         controller.set('model', model)
+
+    actions:
+        updateModel: ->
+            @refresh()
 )
 
 `export default SnapsvgClockNWeatherRoute`
