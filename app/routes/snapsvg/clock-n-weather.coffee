@@ -5401,8 +5401,8 @@ SnapsvgClockNWeatherRoute = Ember.Route.extend (
 
     model: ->
         # Weather data aquisition procedure/configuration
-        # If True >> Simulation
-        # If False >> RESTful Resource
+        # For Simulation mode to work set to >> true
+        # For RESTful-Resource to work set to >> false
         simulationMode = false
 
         # City of interest >> Tampere >> 634963
@@ -5488,7 +5488,34 @@ SnapsvgClockNWeatherRoute = Ember.Route.extend (
         return weatherdata
 
     setupController: (controller, model) ->
+
         controller.set('model', model)
+
+        # ----------------------------------------
+        # Extract: Weather Data Highlights
+        # City, Country, Humidity, Sunrise, Sunset
+        # ----------------------------------------
+        # --- Get Sunrise/Sunset timestamp ---
+        timestampParts = model.sun.sunrise.localtime.split('T')
+        sunriseTimeRaw = timestampParts[1].substring(0,4)
+        sunriseHour = sunriseTimeRaw.substring(0,2)
+        sunriseMinutes = sunriseTimeRaw.substring(2,4)
+        # --- Get Sunset timestamp ---
+        timestampParts = model.sun.sunset.localtime.split('T')
+        sunsetTimeRaw = timestampParts[1].substring(0,4)
+        sunsetHour = sunsetTimeRaw.substring(0,2)
+        sunsetMinutes = sunsetTimeRaw.substring(2,4)
+        # --- Get current date ---
+        now = "#{new Date()}"
+
+        highlights = Ember.A([
+            Ember.Object.create({title: now.substring(0,15), sub: "#{model.current.city}, #{model.current.country}", badge: "#{model.current.temperature} °C"})
+            Ember.Object.create({title: 'Humidity', sub: '', badge: model.current.humidity})
+            Ember.Object.create({ title: 'Sunrise', sub: '', badge: "#{sunriseHour}.#{sunriseMinutes}"})
+            Ember.Object.create({ title: 'Sunset', sub: '', badge: "#{sunsetHour}.#{sunsetMinutes}"})
+          ])
+
+        controller.set('weatherHighlights', highlights)
 
     actions:
         updateModel: ->
