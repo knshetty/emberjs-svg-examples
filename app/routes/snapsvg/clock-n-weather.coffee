@@ -5492,7 +5492,8 @@ SnapsvgClockNWeatherRoute = Ember.Route.extend (
         controller.set('model', model)
 
         # ----------------------------------------
-        # Extract: Weather Data Highlights
+        # Weather Data Highlights
+        # Extract: Weather Data Highlights Dataset
         # City, Country, Humidity, Sunrise, Sunset
         # ----------------------------------------
         # --- Get Sunrise/Sunset timestamp ---
@@ -5508,14 +5509,20 @@ SnapsvgClockNWeatherRoute = Ember.Route.extend (
         # --- Get current date ---
         now = "#{new Date()}"
 
+        # --- Set the selection items for the list-group ---
         highlights = Ember.A([
-            Ember.Object.create({title: now.substring(0,15), sub: "#{model.current.city}, #{model.current.country}", badge: "#{model.current.temperature} °C"})
-            Ember.Object.create({title: 'Humidity', sub: '', badge: model.current.humidity})
-            Ember.Object.create({ title: 'Sunrise', sub: '', badge: "#{sunriseHour}.#{sunriseMinutes}"})
-            Ember.Object.create({ title: 'Sunset', sub: '', badge: "#{sunsetHour}.#{sunsetMinutes}"})
+            Ember.Object.create({ title: now.substring(0,15), sub: "#{model.current.city}, #{model.current.country}", badge: "#{model.current.temperature} °C" })
+            Ember.Object.create({ title: 'Humidity', sub: '', badge: model.current.humidity })
+            Ember.Object.create({ title: 'Sunrise', sub: '', badge: "#{sunriseHour}.#{sunriseMinutes}" })
+            Ember.Object.create({ title: 'Sunset', sub: '', badge: "#{sunsetHour}.#{sunsetMinutes}" })
           ])
-
         controller.set('weatherHighlights', highlights)
+
+        # --- Flag Humidity is high by selecting the list-group item ---
+        if parseFloat(model.current.humidity) > 79.5
+            controller.set('selectedWeatherHighlights', highlights[1])
+        else
+            controller.set('selectedWeatherHighlights', null)
 
     actions:
         updateModel: ->
